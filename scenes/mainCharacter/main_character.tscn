@@ -1494,7 +1494,7 @@ size = Vector2(186.625, 178.344)
 script = ExtResource("1_a35yv")
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
-position = Vector2(515, 314)
+position = Vector2(-1, -1)
 texture = ExtResource("1_byd8y")
 hframes = 20
 frame = 5
@@ -1520,16 +1520,31 @@ parameters/shoot/blend_position = Vector2(-0.00350058, 0.990172)
 parameters/walk/blend_position = Vector2(0.00583434, 0.067729)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(532, 619)
+position = Vector2(11, 286)
 shape = SubResource("RectangleShape2D_eq35x")
 
 [node name="pistolTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="grenadeTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
+[node name="LaserStartPositions" type="Node2D" parent="."]
+
+[node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(413, -218)
+
+[node name="UpPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-16, -412)
+
+[node name="LeftPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-390, -218)
+
+[node name="DownPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(8, -66)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="timeout" from="pistolTimer" to="." method="_on_pistol_timer_timeout"]
 [connection signal="timeout" from="grenadeTimer" to="." method="_on_grenade_timer_timeout"]

@@ -1,24 +1,34 @@
 extends CharacterBody2D
 
+@onready var animationPlayer = $AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
+
+signal shot_pistol(position, direction, knownDirection)
+signal throw_grendade(position, direction)
+
 var direction: Vector2 = Vector2.ZERO
+var knownDirection = 'down';
 var speed = 400
 
 var aim: bool = false
 var shoot: bool = false
 var grenade:bool = false
 
-var ammoPrimary: int = 6
-var grenades:int = 3
-
+var ammoPrimary: int = 7
+var grenades:int = 4
 
 var roll:bool = false
 var walk:bool = false
 var idle:bool = false
 
+var right:bool = false
+var left:bool = false
+var up:bool = false
+var down:bool = true
 
-@onready var animationPlayer = $AnimationPlayer
-@onready var animationTree = $AnimationTree
-@onready var animationState = animationTree.get("parameters/playback")
+var current_direction
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,8 +37,7 @@ func _ready():
 #	screen_size = get_viewport_rect().size
 #	animationTree.active = true
 
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if  not aim and not shoot:
 		velocity = direction * speed
 #		print('Velocity : ', velocity)
@@ -60,20 +69,60 @@ func _process(_delta):
 		set_idle(false)
 
 	if Input.is_action_just_pressed("attack") and aim:
-		
 		velocity = Vector2.ZERO
 		ammoPrimary= use_weapon(ammoPrimary, 'pistol')
+		var laser_markers = $LaserStartPositions.get_children()
+		var selected_laser
+
+		if down:
+			selected_laser = laser_markers[3]
+			knownDirection = 'down';
+		if up:
+			selected_laser = laser_markers[1]
+			knownDirection = 'up';
+		if right:
+			selected_laser = laser_markers[0]
+			knownDirection = 'right';
+		if left:
+			selected_laser = laser_markers[2]
+			knownDirection = 'left';
+
 		
-#		print('shot - ammo : ', ammoPrimary)
+#		if ammoPrimary != 0:
+		#emit the position se selected
+		shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 		set_shoot(true)
 		set_idle(false)
 	
 	if Input.is_action_just_pressed("roll") and direction:
+		
 		set_roll(true)
 	
 	if Input.is_action_just_pressed("secondary action"):
 		grenades = use_weapon(grenades, 'grenade')
-		print('shoot grenade')
+
+		velocity = Vector2.ZERO
+		var laser_markers = $LaserStartPositions.get_children()
+		var selected_grenade
+
+		if down:
+			selected_grenade = laser_markers[3]
+			knownDirection = 'down';
+
+		if up:
+			selected_grenade = laser_markers[1]
+			knownDirection = 'up';
+			
+		if right:
+			selected_grenade = laser_markers[0]
+			knownDirection = 'right';
+
+		if left:
+			selected_grenade = laser_markers[2]
+			knownDirection = 'left';
+#		if grenades  != 0:
+		throw_grendade.emit(selected_grenade.global_position, direction, knownDirection)
+
 
 func set_shoot(value = false):
 	shoot = value
@@ -98,7 +147,7 @@ func set_idle(value):
 	animationTree["parameters/conditions/is_idle"] =  value
 	
 func use_weapon(ammo, ammoType):
-	print('Ammo left : ', ammo, ' type : ', ammoType)
+#	print('Ammo left : ', ammo, ' type : ', ammoType)
 	if ammo > 0:
 		return ammo -1
 	else:
@@ -107,9 +156,20 @@ func use_weapon(ammo, ammoType):
 		elif ammoType == 'grenade':
 			$grenadeTimer.start()
 		return ammo
+		
+func set_direction(value):
+	right = value
+	left = value
+	up = value
+	down = value
 
-	
-	
+func _on_pistol_timer_timeout():
+	ammoPrimary = 7
+#	print('PISTOL ammo Replenished ! : ', ammoPrimary)
+
+func _on_grenade_timer_timeout():
+	grenades = 4
+#	print('Grenade ammo Replenished ! : ', grenades)
 
 func update_blend_position(direction):
 	animationTree["parameters/shoot/blend_position"] = direction
@@ -117,16 +177,26 @@ func update_blend_position(direction):
 	animationTree["parameters/walk/blend_position"] = direction
 	animationTree["parameters/roll/blend_position"] = direction
 	animationTree["parameters/aim/blend_position"] = direction
-	
+	if Input.is_action_just_pressed("down"):
+		down = true
+		up = false
+		right = false
+		left = false
+	if Input.is_action_just_pressed("up"):
+		up = true
+		down = false
+		right = false
+		left = false
+	if Input.is_action_just_pressed("right"):
+		right = true
+		down = false
+		up = false
+		left = false
+	if Input.is_action_just_pressed("left"):
+		left = true
+		down = false
+		up = false
+		right = false
 
 
 
-func _on_pistol_timer_timeout():
-	ammoPrimary = 6
-	print('Pistol reloded : ', ammoPrimary)
-
-
-
-func _on_grenade_timer_timeout():
-	grenades = 3
-	print('Grenade reloded : ', grenades)
