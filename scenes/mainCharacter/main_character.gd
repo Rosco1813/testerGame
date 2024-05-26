@@ -76,15 +76,19 @@ func _process(_delta):
 
 		if down:
 			selected_laser = laser_markers[3]
+			$gunPartilcesDown.emitting = true
 			knownDirection = 'down';
 		if up:
 			selected_laser = laser_markers[1]
+			$gunPartilcesUp.emitting = true
 			knownDirection = 'up';
 		if right:
 			selected_laser = laser_markers[0]
+			$gunPartilcesRight.emitting = true
 			knownDirection = 'right';
 		if left:
 			selected_laser = laser_markers[2]
+			$gunPartilcesLeft.emitting = true
 			knownDirection = 'left';
 
 		
