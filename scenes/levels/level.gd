@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene:PackedScene = preload("res://scenes/projectiles/grenade.tscn")
@@ -6,9 +7,6 @@ var grenade_scene:PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 
 
-func _on_gate_player_entered_gate(body):
-	print('player has entered gate : ', body)
-	pass # Replace with function body.
 
 
 func _on_main_character_shot_pistol(pos, _direction, knownDirection):
@@ -25,4 +23,21 @@ func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	grenade.linear_velocity =direction * grenade.speed
 	grenade.set_grenade_direction(knownDirection)
 	$Projectiles.add_child(grenade)
-#	print('Grenade Thrown ! ')
+
+
+
+
+func _on_house_player_entered():
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property($MainCharacter/Camera2D, "zoom", Vector2(0.8,0.8), 0.8).set_trans(Tween.TRANS_QUAD)
+	#use to make INVISIBLE
+#	tween.tween_property($MainCharacter, "modulate:a",0,2).from(0.5)
+
+
+func _on_house_player_exit():
+	var tween = get_tree().create_tween()
+	tween.tween_property($MainCharacter/Camera2D, "zoom", Vector2(0.6,0.6), 0.6)
+
+
+	

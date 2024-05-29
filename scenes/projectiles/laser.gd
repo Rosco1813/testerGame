@@ -8,6 +8,7 @@ var direction: Vector2 = Vector2.UP
 var shootDirection = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$lazerTimeLimit.start()
 	pass # Replace with function body.
 
 
@@ -15,18 +16,7 @@ func _ready():
 func _process(delta):
 	position += direction  * speed * delta
 
-#func _physics_process(delta):
-#	print('current direction ', currentDirection)
-#	if currentDirection == 'down' :
-#		velocity.x = speed * delta * shootDirection
-#	if currentDirection == 'up':
-#		velocity.x = speed * delta * shootDirection
-#	if currentDirection == 'right':
-##		$AnimatedSprite2D.rotation_degrees = 90
-#		velocity.y = speed * delta * shootDirection
-#	if currentDirection == 'left':
-##		$AnimatedSprite2D.rotation_degrees = -90
-#		velocity.y = speed * delta * shootDirection
+
 
 
 func set_lazer_direction(knownDirection): 
@@ -45,3 +35,18 @@ func set_lazer_direction(knownDirection):
 		direction = Vector2.LEFT
 
 		
+
+
+func _on_body_entered(body):
+	print('body : ', body)
+	if "hit" in body:
+		print('hit object')
+		body.hit()
+		queue_free()
+	
+
+
+
+func _on_lazer_time_limit_timeout():
+#	print('lazer time up')
+	queue_free()

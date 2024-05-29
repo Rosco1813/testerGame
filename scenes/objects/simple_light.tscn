@@ -11,6 +11,8 @@ height = 194.0
 polygon = PackedVector2Array(-75, -6, -77, 5, -77, 15, -85, 15, -96, 9, -99, 2, -97, -6, -90, -14, -81, -16, -74, -18, -54, -18, 76, -18, 84, -16, 90, -13, 97, -7, 99, 1, 96, 9, 87, 14, 77, 15, 76, -5, 71, -11, 62, -12, -68, -12)
 
 [node name="SimpleLight" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ivojg")

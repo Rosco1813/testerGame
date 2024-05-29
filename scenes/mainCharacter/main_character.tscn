@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://ccxvs0iq5s7wn"]
+[gd_scene load_steps=74 format=3 uid="uid://ccxvs0iq5s7wn"]
 
 [ext_resource type="Script" path="res://scenes/mainCharacter/main_character.gd" id="1_a35yv"]
 [ext_resource type="Texture2D" uid="uid://c18gabby88qft" path="res://graphics/MainCharacter/FINAL_Character_Pallet_Sheet_Walking copy.png" id="1_byd8y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://hif261q21swj" path="res://graphics/MainCharacter/shadow/SHADOW.png" id="3_mwuog"]
 [ext_resource type="Texture2D" uid="uid://b5tq32r7nnj5i" path="res://graphics/MainCharacter/WALK_RIGHT_FIX.png" id="5_ipavs"]
 [ext_resource type="Texture2D" uid="uid://80531l6qeosl" path="res://graphics/decals/white.png" id="7_341th"]
+[ext_resource type="Texture2D" uid="uid://ckexo3a41qlx8" path="res://graphics/lights/textures/circle.png" id="8_12f2m"]
 
 [sub_resource type="Animation" id="Animation_1666d"]
 length = 0.001
@@ -741,7 +742,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_p75hb"]
 resource_name = "shoot_down_2"
-length = 0.6
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -785,7 +786,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 10]
@@ -807,7 +808,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_u66qs"]
 resource_name = "shoot_left_2"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -851,7 +852,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [5, 15, 4]
@@ -873,7 +874,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_k76aw"]
 resource_name = "shoot_right_2"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -917,7 +918,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 13, 0]
@@ -1314,9 +1315,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_pq6tf")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_loltr")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_ygdqh")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8cfs6"]
@@ -1337,9 +1340,9 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_ak22w")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_vcop1")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_gm1ws")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
@@ -1385,9 +1388,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_fs1vu")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_g8803")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_8pyr3")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xap5b"]
@@ -1491,7 +1496,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(0, -2.95235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq35x"]
-size = Vector2(186.625, 178.344)
+size = Vector2(262.313, 205.172)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhn5q"]
 particle_flag_disable_z = true
@@ -1505,20 +1510,24 @@ orbit_velocity_max = 0.0
 color = Color(0.94902, 0.905882, 0.858824, 0.27451)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mfygg"]
-polygon = PackedVector2Array(-115, 393, -110, 331, -104, 243, -85, 178, -65, 53, -67, -26, -63, -113, -51, -186, -47, -250, -65, -300, -54, -341, -19, -361, 29, -369, 67, -343, 58, -314, 35, -257, 21, -209, 31, -161, 58, -113, 53, -42, 53, 39, 65, 113, 83, 188, 92, 249, 94, 334, 104, 411, 85, 439, 70, 416, 72, 358, 54, 295, 45, 245, 38, 158, 29, 101, -1, 106, -28, 142, -36, 197, -56, 274, -76, 329, -92, 377)
+polygon = PackedVector2Array(14, 64, 2, 118, 1, 187, 61, 211, 94, 195, 106, 152, 106, 83, 71, 64)
 
 [node name="MainCharacter" type="CharacterBody2D"]
 collision_mask = 31
 script = ExtResource("1_a35yv")
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
+position = Vector2(6, -7)
 texture = ExtResource("1_byd8y")
 hframes = 20
 frame = 5
+metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Sprite2D" parent="CharacterImage"]
+visible = false
 modulate = Color(0.0588235, 0, 0.133333, 0.929412)
 show_behind_parent = true
+position = Vector2(-37, -29)
 texture = ExtResource("3_mwuog")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1536,17 +1545,17 @@ parameters/conditions/is_rolling = false
 parameters/conditions/is_shooting = false
 parameters/conditions/is_walking = false
 parameters/aim/blend_position = Vector2(-0.127188, -0.0186666)
-parameters/idle/blend_position = Vector2(0.00302112, 1)
+parameters/idle/blend_position = Vector2(-0.00251049, 1.08057)
 parameters/roll/blend_position = Vector2(-0.00350058, 0.978552)
-parameters/shoot/blend_position = Vector2(-0.00350058, 0.990172)
+parameters/shoot/blend_position = Vector2(-0.00418413, 1.00287)
 parameters/walk/blend_position = Vector2(-0.220238, 0.0428572)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, 286)
+position = Vector2(37, 366)
 shape = SubResource("RectangleShape2D_eq35x")
 
 [node name="pistolTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.4
 one_shot = true
 
 [node name="grenadeTimer" type="Timer" parent="."]
@@ -1556,16 +1565,16 @@ one_shot = true
 [node name="LaserStartPositions" type="Node2D" parent="."]
 
 [node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(413, -218)
+position = Vector2(529, -214)
 
 [node name="UpPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(-16, -412)
+position = Vector2(-12, -533)
 
 [node name="LeftPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(-390, -218)
+position = Vector2(-493, -213)
 
 [node name="DownPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(8, -66)
+position = Vector2(8, -16)
 
 [node name="gunPartilcesRight" type="GPUParticles2D" parent="."]
 position = Vector2(405, -219)
@@ -1574,6 +1583,7 @@ process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="gunPartilcesDown" type="GPUParticles2D" parent="."]
 position = Vector2(7, -75)
@@ -1582,6 +1592,7 @@ process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="gunPartilcesUp" type="GPUParticles2D" parent="."]
 position = Vector2(-17, -485)
@@ -1590,6 +1601,7 @@ process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="gunPartilcesLeft" type="GPUParticles2D" parent="."]
 position = Vector2(-389, -217)
@@ -1598,10 +1610,25 @@ process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+show_behind_parent = true
+position = Vector2(-40, -16)
 occluder = SubResource("OccluderPolygon2D_mfygg")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9, -197)
+energy = 0.1
+shadow_enabled = true
+shadow_color = Color(1, 0.501961, 0.435294, 0)
+shadow_filter = 2
+texture = ExtResource("8_12f2m")
+texture_scale = 0.3
+metadata/_edit_lock_ = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="pistolTimer" to="." method="_on_pistol_timer_timeout"]
 [connection signal="timeout" from="grenadeTimer" to="." method="_on_grenade_timer_timeout"]
