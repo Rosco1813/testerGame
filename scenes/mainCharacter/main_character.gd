@@ -37,20 +37,20 @@ var current_direction
 func _ready():
 	set_walking(false)
 	set_idle(true)
-#	screen_size = get_viewport_rect().size
-#	animationTree.active = true
+
 
 func _physics_process(_delta):
-	if  not aim and not shoot:
+	if !aim and !shoot:
 		velocity = direction * speed
+		move_and_slide()
 
-#		position = position.clamp(Vector2.ZERO, screen_size)
 	else:
 		velocity = Vector2.ZERO
-	move_and_slide()
-	
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	var laser_markers = $LaserStartPositions.get_children()
+	var selected_laser
 	direction = Input.get_vector("left", "right", "up", "down").normalized()
 	if direction != Vector2.ZERO:
 		update_blend_position(direction)
@@ -65,64 +65,72 @@ func _process(_delta):
 		set_shoot(false)
 	
 	if Input.is_action_pressed('aim'):
-		velocity = Vector2.ZERO
 		set_aim(true)
 		set_walking(false)
 		set_idle(false)
-		if Input.is_action_just_released('aim'):
-			
-			set_aim(false)
+		set_roll(false);
+
+	
 
 
-	if Input.is_action_just_pressed("attack") and aim and not roll:
+	if Input.is_action_just_pressed("attack") and aim:
 		velocity = Vector2.ZERO
-		
-	
 		ammoPrimary= use_weapon(ammoPrimary, 'pistol')
-		var laser_markers = $LaserStartPositions.get_children()
-		var selected_laser
-
-		if down:
+		print( " : direction : ", direction)
+		
+		if direction.y == 1:
 			selected_laser = laser_markers[3]
-			$gunPartilcesDown.emitting = true
-			knownDirection = 'down';
-	
-		if up:
+			if canShoot:
+				$gunPartilcesDown.emitting = true
+				knownDirection = 'down';
+				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+				set_shoot(true)
+				
+		if direction.y == -1:
 			selected_laser = laser_markers[1]
-			$gunPartilcesUp.emitting = true
-			knownDirection = 'up';
-	
-		if right:
+			if canShoot:
+				$gunPartilcesUp.emitting = true
+				knownDirection = 'up';
+				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+				set_shoot(true)
+				
+		if direction.x == 1:
 			selected_laser = laser_markers[0]
-			$gunPartilcesRight.emitting = true
-			knownDirection = 'right';
-
-		if left:
+			if canShoot:
+				$gunPartilcesRight.emitting = true
+				knownDirection = 'right';
+				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+				set_shoot(true)
+		if direction.x == -1:
 			selected_laser = laser_markers[2]
-			$gunPartilcesLeft.emitting = true
-			knownDirection = 'left';
-			
+			if canShoot:
+				$gunPartilcesLeft.emitting = true
+				knownDirection = 'left';
+				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+				set_shoot(true)
 
 		
 #		if ammoPrimary != 0:
 		#emit the position se selected
 		set_walking(false)
 		set_idle(false)
-		set_shoot(true)
 		if canShoot:
+#			set_shoot(true)
 			canShoot = false
-			shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+#			shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 			$pistolTimer.start()
 			
 	if Input.is_action_just_pressed("roll") and direction:
+		speed = 800
 		set_shoot(false)
 		set_roll(true)
+
 	
 	if Input.is_action_just_pressed("secondary action"):
 		grenades = use_weapon(grenades, 'grenade')
 
 		velocity = Vector2.ZERO
-		var laser_markers = $LaserStartPositions.get_children()
+		laser_markers = $LaserStartPositions.get_children()
 		var selected_grenade
 
 		if down:
@@ -151,7 +159,6 @@ func set_shoot(value = false):
 	
 
 func set_roll(value = false):
-	speed = 400
 	roll = value
 	animationTree["parameters/conditions/is_rolling"] = value
 
@@ -163,6 +170,7 @@ func set_aim(value = false):
 func set_walking(value = false):
 	walk = value
 	animationTree["parameters/conditions/is_walking"] = value
+	animationTree["parameters/conditions/is_rolling"] = not value
 	
 func set_idle(value):
 	idle = value
@@ -195,12 +203,13 @@ func _on_grenade_timer_timeout():
 
 
 func update_blend_position(blendDirection):
-	animationTree["parameters/shoot/blend_position"] = blendDirection
-	animationTree["parameters/idle/blend_position"] = blendDirection
-	animationTree["parameters/walk/blend_position"] = blendDirection
-	animationTree["parameters/roll/blend_position"] = blendDirection
-	animationTree["parameters/aim/blend_position"] = blendDirection
+	if not Input.is_action_pressed("aim"):
+		set_aim(false)
+		set_shoot(false)
+	if not Input.is_action_pressed("roll"):
+		set_roll(false)
 	if Input.is_action_just_pressed("down"):
+		
 		down = true
 		up = false
 		right = false
@@ -220,13 +229,40 @@ func update_blend_position(blendDirection):
 		down = false
 		up = false
 		right = false
+	animationTree["parameters/shoot/blend_position"] = blendDirection
+	animationTree["parameters/idle/blend_position"] = blendDirection
+	animationTree["parameters/walk/blend_position"] = blendDirection
+	animationTree["parameters/roll/blend_position"] = blendDirection
+	animationTree["parameters/aim/blend_position"] = blendDirection
 
 
 
+func stop_animation(blendDirection):
+	animationTree["parameters/idle/blend_position"] = blendDirection
 
 
 
-
-func _on_animation_tree_animation_finished(_anim_name):
+func _on_animation_tree_animation_finished(anim_name):
+	
+		var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
+		for roll in rolling:
+			if roll == anim_name:
+				canShoot = true
+				speed = max_speed
+				
 #	print('Animation finished : ', anim_name)
-	pass
+
+
+
+func _on_animation_tree_animation_started(anim_name):
+	var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
+	for roll in rolling:
+		if roll == anim_name:
+			canShoot = false
+			
+				
+	
+
+
+
+

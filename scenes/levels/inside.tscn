@@ -13,6 +13,10 @@
 
 [node name="inside" instance=ExtResource("1_40uks")]
 
+[node name="Ground" parent="." index="0"]
+light_mask = 1
+visibility_layer = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
 position = Vector2(214, -1397)
@@ -45,32 +49,44 @@ layer_2/tile_data = PackedInt32Array(-393213, 65536, 7, -393216, 0, 7, -393214, 
 [node name="SimpleLight" parent="Ground" index="2" instance=ExtResource("4_7f7s5")]
 modulate = Color(0.792157, 0.215686, 0.427451, 1)
 self_modulate = Color(0.882353, 0.505882, 0.262745, 1)
+light_mask = 1
+visibility_layer = 1
 position = Vector2(4872, -1246)
 
 [node name="SimpleLight2" parent="Ground" index="3" instance=ExtResource("4_7f7s5")]
 modulate = Color(0.792157, 0.215686, 0.427451, 1)
 self_modulate = Color(0.882353, 0.505882, 0.262745, 1)
+light_mask = 1
+visibility_layer = 1
 position = Vector2(6064, -214)
 rotation = 3.14159
 
 [node name="SimpleLight3" parent="Ground" index="4" instance=ExtResource("4_7f7s5")]
 modulate = Color(0.792157, 0.215686, 0.427451, 1)
 self_modulate = Color(0.882353, 0.505882, 0.262745, 1)
+light_mask = 1
+visibility_layer = 1
 position = Vector2(4374, 507)
 rotation = 3.14159
 
 [node name="SimpleLight4" parent="Ground" index="5" instance=ExtResource("4_7f7s5")]
 modulate = Color(0.792157, 0.215686, 0.427451, 1)
 self_modulate = Color(0.882353, 0.505882, 0.262745, 1)
+light_mask = 1
+visibility_layer = 1
 position = Vector2(2347, -152)
 
 [node name="WallLamp" parent="Ground" index="6" instance=ExtResource("5_me3tb")]
+light_mask = 1
+visibility_layer = 1
 position = Vector2(2668, -264)
 rotation = 3.14159
 scale = Vector2(0.3, 0.3)
 metadata/_edit_lock_ = true
 
 [node name="WallLamp2" parent="Ground" index="7" instance=ExtResource("5_me3tb")]
+light_mask = 1
+visibility_layer = 1
 position = Vector2(4038, -763)
 rotation = 1.5708
 scale = Vector2(0.3, 0.3)

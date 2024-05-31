@@ -19,6 +19,7 @@ func _process(delta):
 
 
 
+
 func set_lazer_direction(knownDirection): 
 #	print('LAZER LAXER ', knownDirection)
 	currentDirection = knownDirection

@@ -13,7 +13,7 @@ func _process(_delta):
 
 
 func _on_body_entered(_body):
-
+	print('body entered')
 	player_entered.emit()
 	pass # Replace with function body.
 

@@ -14,10 +14,14 @@ polygon = PackedVector2Array(-346, 28, -349, 67, -346, 89, -336, 102, -322, 111,
 polygon = PackedVector2Array(318, -8, 334, -1, 334, 14, 341, 30, 344, 79, 340, 97, 336, 112, 328, 120, 318, 112)
 
 [node name="WallLamp" type="StaticBody2D"]
+light_mask = 3
+visibility_layer = 3
 collision_layer = 4
 collision_mask = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(7.99998, 14)
 scale = Vector2(1.52374, 2.1667)
 texture = ExtResource("1_kaoqm")
@@ -26,11 +30,15 @@ region_rect = Rect2(-3.06018, -20.7504, 858.529, 204.906)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-509, -151)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c5bxs")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-2, -14)
 color = Color(0.380392, 0.611765, 0.2, 0.678431)
 energy = 12.0
@@ -41,8 +49,13 @@ texture = ExtResource("2_ilv55")
 texture_scale = 12.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-4, 4)
 occluder = SubResource("OccluderPolygon2D_l5r5w")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 occluder = SubResource("OccluderPolygon2D_88rcq")
+occluder_light_mask = 3

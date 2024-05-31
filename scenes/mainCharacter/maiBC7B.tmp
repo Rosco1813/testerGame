@@ -541,18 +541,6 @@ tracks/4/keys = {
 "method": &"set_roll"
 }]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_6srbj"]
 resource_name = "roll_left_2"
@@ -618,18 +606,6 @@ tracks/4/keys = {
 "args": [false],
 "method": &"set_roll"
 }]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_k64oi"]
@@ -763,23 +739,10 @@ tracks/4/keys = {
 "method": &"set_roll"
 }]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_p75hb"]
 resource_name = "shoot_down_2"
-length = 0.4
-step = 0.05
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -823,7 +786,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25, 0.35),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 10]
@@ -845,8 +808,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_u66qs"]
 resource_name = "shoot_left_2"
-length = 0.14
-step = 0.025
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -890,7 +852,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.125),
+"times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [5, 15, 4]
@@ -912,8 +874,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_k76aw"]
 resource_name = "shoot_right_2"
-length = 0.14
-step = 0.025
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -957,7 +918,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.125),
+"times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 13, 0]
@@ -979,8 +940,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_gj7st"]
 resource_name = "shoot_up_2"
-length = 0.3
-step = 0.05
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1024,7 +984,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.25),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [7, 8, 7]
@@ -1428,9 +1388,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_fs1vu")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_g8803")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_8pyr3")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xap5b"]
@@ -1525,16 +1487,16 @@ states/aim/position = Vector2(457, 65)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_pemce")
 states/idle/position = Vector2(235, 202)
 states/roll/node = SubResource("AnimationNodeBlendSpace2D_nxcvo")
-states/roll/position = Vector2(946, 218)
+states/roll/position = Vector2(678, 202)
 states/shoot/node = SubResource("AnimationNodeBlendSpace2D_k30ln")
-states/shoot/position = Vector2(738, 54)
+states/shoot/position = Vector2(717, 65)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_eif40")
-states/walk/position = Vector2(738, 336)
+states/walk/position = Vector2(457, 326)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q18jw"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_kjv88"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_l4w22"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5drld"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_wqct1"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_ff27i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_gf535"), "roll", "walk", SubResource("AnimationNodeStateMachineTransition_1yq01"), "walk", "roll", SubResource("AnimationNodeStateMachineTransition_usb2i"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_0gekf"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_u366x"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_ec03j"), "shoot", "aim", SubResource("AnimationNodeStateMachineTransition_xwu7b"), "roll", "aim", SubResource("AnimationNodeStateMachineTransition_y6ehl")]
 graph_offset = Vector2(0, -2.95235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq35x"]
-size = Vector2(301.156, 253.586)
+size = Vector2(262.313, 205.172)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhn5q"]
 particle_flag_disable_z = true
@@ -1548,28 +1510,11 @@ orbit_velocity_max = 0.0
 color = Color(0.94902, 0.905882, 0.858824, 0.27451)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mfygg"]
-cull_mode = 1
-polygon = PackedVector2Array(32, 153, 12, 151, -3, 154, -8, 166, -5, 174, 1, 184, 7, 192, 18, 197, 37, 187, 59, 182, 78, 184, 93, 193, 116, 197, 126, 199, 139, 192, 140, 170, 117, 158, 84, 155, 55, 154)
+polygon = PackedVector2Array(14, 64, 2, 118, 1, 187, 61, 211, 94, 195, 106, 152, 106, 83, 71, 64)
 
 [node name="MainCharacter" type="CharacterBody2D"]
-z_index = 3
 collision_mask = 31
 script = ExtResource("1_a35yv")
-
-[node name="LaserStartPositions" type="Node2D" parent="."]
-z_index = 1
-
-[node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(490, -232)
-
-[node name="UpPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(-12, -533)
-
-[node name="LeftPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(-474, -223)
-
-[node name="DownPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(8, -16)
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
 position = Vector2(6, -7)
@@ -1579,10 +1524,10 @@ frame = 5
 metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Sprite2D" parent="CharacterImage"]
-modulate = Color(0.0588235, 0, 0.133333, 0.576471)
+visible = false
+modulate = Color(0.0588235, 0, 0.133333, 0.929412)
 show_behind_parent = true
-position = Vector2(-29, 90)
-scale = Vector2(0.636116, 0.738728)
+position = Vector2(-37, -29)
 texture = ExtResource("3_mwuog")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1602,20 +1547,34 @@ parameters/conditions/is_walking = false
 parameters/aim/blend_position = Vector2(-0.127188, -0.0186666)
 parameters/idle/blend_position = Vector2(-0.00251049, 1.08057)
 parameters/roll/blend_position = Vector2(-0.00350058, 0.978552)
-parameters/shoot/blend_position = Vector2(0.00652373, 0.734475)
+parameters/shoot/blend_position = Vector2(-0.00418413, 1.00287)
 parameters/walk/blend_position = Vector2(-0.220238, 0.0428572)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-12.4219, 311.793)
+position = Vector2(37, 366)
 shape = SubResource("RectangleShape2D_eq35x")
 
 [node name="pistolTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 one_shot = true
 
 [node name="grenadeTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="LaserStartPositions" type="Node2D" parent="."]
+
+[node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(529, -214)
+
+[node name="UpPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-12, -533)
+
+[node name="LeftPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-493, -213)
+
+[node name="DownPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(8, -16)
 
 [node name="gunPartilcesRight" type="GPUParticles2D" parent="."]
 position = Vector2(405, -219)
@@ -1653,24 +1612,24 @@ lifetime = 0.2
 one_shot = true
 metadata/_edit_lock_ = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+show_behind_parent = true
+position = Vector2(-40, -16)
+occluder = SubResource("OccluderPolygon2D_mfygg")
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(9, -84)
-scale = Vector2(0.729167, 1.86875)
+position = Vector2(9, -197)
+energy = 0.1
 shadow_enabled = true
 shadow_color = Color(1, 0.501961, 0.435294, 0)
 shadow_filter = 2
 texture = ExtResource("8_12f2m")
 texture_scale = 0.3
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-58, 225)
-occluder = SubResource("OccluderPolygon2D_mfygg")
 metadata/_edit_lock_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="animation_player_changed" from="AnimationTree" to="." method="_on_animation_tree_animation_player_changed"]
 [connection signal="animation_started" from="AnimationTree" to="." method="_on_animation_tree_animation_started"]
 [connection signal="timeout" from="pistolTimer" to="." method="_on_pistol_timer_timeout"]
 [connection signal="timeout" from="grenadeTimer" to="." method="_on_grenade_timer_timeout"]
