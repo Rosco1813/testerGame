@@ -152,42 +152,54 @@ script = ExtResource("2_ar14f")
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
-position = Vector2(-167, 1727)
-scale = Vector2(3.58869, 4.02065)
+position = Vector2(-2072.23, 1440.14)
+scale = Vector2(4.99987, 4.23723)
 skew = 0.383972
 texture = ExtResource("2_hnmr0")
 region_enabled = true
 region_rect = Rect2(-693.52, -388.667, 4313.96, 2857.64)
 
-[node name="Decoration" type="Sprite2D" parent="Ground" index="1"]
+[node name="dirtPatch" type="Sprite2D" parent="Ground" index="1"]
 modulate = Color(0.996078, 0.839216, 0.572549, 1)
 position = Vector2(630, 568)
 rotation = 1.53589
 texture = ExtResource("3_jcm8e")
 
-[node name="Moss5" type="Sprite2D" parent="Ground" index="2"]
+[node name="dirtPatch2" type="Sprite2D" parent="Ground" index="2"]
+modulate = Color(0.996078, 0.839216, 0.572549, 1)
+position = Vector2(-6613, 1583)
+rotation = 1.53589
+texture = ExtResource("3_jcm8e")
+
+[node name="dirtPatch3" type="Sprite2D" parent="Ground" index="3"]
+modulate = Color(0.996078, 0.839216, 0.572549, 1)
+position = Vector2(-6232, 722)
+rotation = 4.69494
+texture = ExtResource("3_jcm8e")
+
+[node name="Moss5" type="Sprite2D" parent="Ground" index="4"]
 position = Vector2(-220, 378)
 texture = ExtResource("4_ygli0")
 
-[node name="Moss4" type="Sprite2D" parent="Ground" index="3"]
+[node name="Moss4" type="Sprite2D" parent="Ground" index="5"]
 position = Vector2(1841, 365)
 texture = ExtResource("5_13r2p")
 
-[node name="Moss3" type="Sprite2D" parent="Ground" index="4"]
+[node name="Moss3" type="Sprite2D" parent="Ground" index="6"]
 position = Vector2(2310, 82)
 texture = ExtResource("6_b1tls")
 
-[node name="Moss2" type="Sprite2D" parent="Ground" index="5"]
+[node name="Moss2" type="Sprite2D" parent="Ground" index="7"]
 position = Vector2(1200, 596)
 texture = ExtResource("7_8iqhb")
 
-[node name="Moss1" type="Sprite2D" parent="Ground" index="6"]
+[node name="Moss1" type="Sprite2D" parent="Ground" index="8"]
 position = Vector2(-944, 349)
 rotation = 0.139626
 scale = Vector2(1.03963, 1.07914)
 texture = ExtResource("8_11gr3")
 
-[node name="TileMap" type="TileMap" parent="Ground" index="7"]
+[node name="TileMap" type="TileMap" parent="Ground" index="9"]
 tile_set = SubResource("TileSet_acjk5")
 format = 2
 layer_0/name = "Soil"
@@ -198,30 +210,31 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(65539, 0, 3, 3, 0, 2, 65535, 0, 2, 131071, 0, 3, 131068, 131072, 2, 65532, 0, 2, -4, 0, 2, -65540, 0, 2, -131076, 0, 2, -196612, 0, 2, -262148, 65536, 1, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, -327676, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 131072, 1, -262136, 0, 2, -196600, 0, 2, 65544, 0, 2, 131080, 0, 2, 196615, 65536, 0, 196614, 65536, 0, 196613, 65536, 0, 262142, 65536, 0, 262143, 65536, 0, 196608, 65536, 0, 196616, 131072, 2, 196612, 65536, 0, 262141, 65536, 0, 262140, 65536, 2, 131067, 65536, 0, 131066, 65536, 2, 65530, 0, 2, -6, 0, 2, -65542, 131072, 1, -65543, 65536, 0, -65544, 65536, 0, -65545, 65536, 0, -65546, 65536, 0, -65547, 65536, 1, 131061, 131072, 1, 196597, 0, 2, 262133, 0, 2, 327669, 65536, 2, 327670, 65536, 0, 327671, 65536, 0, 327672, 65536, 0, 327673, 131072, 1, 393209, 0, 2, 458745, 65536, 2, 458746, 65536, 0, 458747, 65536, 0, 458748, 65536, 0, 458749, 65536, 0, 458750, 65536, 0, 458751, 65536, 0, 393216, 65536, 0, 393217, 65536, 0, 393218, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 393221, 65536, 0, 393222, 65536, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 65536, 0, 393226, 65536, 0, 393227, 131072, 2, 327691, 0, 2, 262155, 0, 2, 196619, 0, 2, 131083, 0, 2, 65547, 0, 2, 11, 0, 2, -65525, 0, 2, -131061, 131072, 1, -131062, 65536, 0, -131063, 65536, 0, -131064, 65536, 2, -11, 131072, 2, -12, 65536, 0, -13, 65536, 0, -14, 65536, 0, -15, 65536, 0, -16, 65536, 0, -17, 65536, 0, -18, 65536, 1, 65518, 0, 2, 131054, 0, 3, 131060, 65536, 0, 131059, 65536, 0, 131058, 65536, 0, 131057, 65536, 0, 131056, 65536, 1, 196592, 0, 3)
+layer_1/tile_data = PackedInt32Array(65539, 0, 3, 3, 0, 2, 65535, 0, 2, 131071, 0, 3, 131068, 131072, 2, 65532, 0, 2, -4, 0, 2, -65540, 0, 2, -131076, 0, 2, -196612, 0, 2, -262148, 65536, 1, -262147, 65536, 0, -262146, 65536, 0, -262145, 65536, 0, -327680, 65536, 0, -327679, 65536, 0, -327678, 65536, 0, -327677, 65536, 0, -327676, 65536, 0, -327675, 65536, 0, -327674, 65536, 0, -327673, 65536, 0, -327672, 131072, 1, -262136, 0, 2, -196600, 0, 2, 65544, 0, 2, 131080, 0, 2, 196615, 65536, 0, 196614, 65536, 0, 196613, 65536, 0, 262142, 65536, 0, 262143, 65536, 0, 196608, 65536, 0, 196616, 131072, 2, 196612, 65536, 0, 262141, 65536, 0, 262140, 65536, 2, 131067, 65536, 0, 131066, 65536, 2, 65530, 0, 2, -6, 0, 2, -65542, 131072, 1, -65543, 65536, 0, -65544, 65536, 0, -65545, 65536, 0, -65546, 65536, 0, -65547, 65536, 1, 131061, 131072, 1, 196597, 0, 2, 262133, 0, 2, 327669, 65536, 2, 327670, 65536, 0, 327671, 65536, 0, 327672, 65536, 0, 327673, 131072, 1, 393209, 0, 2, 458745, 65536, 2, 458746, 65536, 0, 458747, 65536, 0, 458748, 65536, 0, 458749, 65536, 0, 458750, 65536, 0, 458751, 65536, 0, 393216, 65536, 0, 393217, 65536, 0, 393218, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 393221, 65536, 0, 393222, 65536, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 65536, 0, 393226, 65536, 0, 393227, 131072, 2, 327691, 0, 2, 262155, 0, 2, 196619, 0, 2, 131083, 0, 2, 65547, 0, 2, 11, 0, 2, -65525, 0, 2, -131061, 131072, 1, -131062, 65536, 0, -131063, 65536, 0, -131064, 65536, 2, -11, 131072, 2, -12, 65536, 0, -13, 65536, 0, -14, 65536, 0, -15, 65536, 0, -16, 65536, 0, -17, 65536, 0, -18, 65536, 1, 65518, 0, 2, 131054, 0, 2, 131060, 65536, 0, 131059, 65536, 0, 131058, 65536, 0, 131057, 65536, 0, 131056, 65536, 1, 196592, 0, 3, 196590, 0, 2, 262126, 0, 2, 327662, 0, 3, 196604, 0, 1, 196609, 131072, 0, 196611, 0, 0, 8, 0, 2, -65528, 0, 1)
 
-[node name="House" parent="Ground" index="8" instance=ExtResource("11_jo00j")]
-position = Vector2(-4954, 2531)
+[node name="House" parent="Ground" index="10" instance=ExtResource("11_jo00j")]
+position = Vector2(-4964, 2484)
 rotation = -3.14159
 collision_mask = 9
+metadata/_edit_lock_ = true
 
-[node name="SteamVent" parent="Ground" index="9" instance=ExtResource("12_vlipp")]
+[node name="SteamVent" parent="Ground" index="11" instance=ExtResource("12_vlipp")]
 position = Vector2(1374, 677)
 
-[node name="SteamVent2" parent="Ground" index="10" instance=ExtResource("12_vlipp")]
+[node name="SteamVent2" parent="Ground" index="12" instance=ExtResource("12_vlipp")]
 position = Vector2(-170, 682)
 
-[node name="WallLamp" parent="Ground" index="11" instance=ExtResource("13_is8qe")]
+[node name="WallLamp" parent="Ground" index="13" instance=ExtResource("13_is8qe")]
 position = Vector2(549, 100)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_lock_ = true
 
-[node name="WallLamp2" parent="Ground" index="12" instance=ExtResource("13_is8qe")]
+[node name="WallLamp2" parent="Ground" index="14" instance=ExtResource("13_is8qe")]
 position = Vector2(-4032, 766)
 rotation = -1.5708
 scale = Vector2(0.3, 0.3)
 
-[node name="LightFanAnimation" parent="Ground" index="13" instance=ExtResource("14_18paw")]
+[node name="LightFanAnimation" parent="Ground" index="15" instance=ExtResource("14_18paw")]
 position = Vector2(-5210.5, 2474.5)
 scale = Vector2(1.61, 1.458)
 
@@ -232,27 +245,47 @@ position = Vector2(-5217, 2408)
 position = Vector2(-73, -209)
 
 [node name="Drone" parent="." index="4" instance=ExtResource("20_i0ug5")]
-position = Vector2(121, 2000)
+position = Vector2(-4629, 2806)
 
 [node name="chest" parent="." index="5" instance=ExtResource("18_e61qf")]
-position = Vector2(-660, 2102)
+position = Vector2(3956, -342)
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
 collision_mask = 15
 
 [node name="box" parent="." index="6" instance=ExtResource("19_pu5qf")]
-position = Vector2(-432, 1759)
+position = Vector2(-4790, 837)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 15
 
-[node name="toilet" parent="." index="7" instance=ExtResource("20_wpqoi")]
-position = Vector2(-1378, 1835)
+[node name="box2" parent="." index="7" instance=ExtResource("19_pu5qf")]
+position = Vector2(-4581, 871)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 15
+
+[node name="box3" parent="." index="8" instance=ExtResource("19_pu5qf")]
+position = Vector2(-3559, 1466)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 15
+
+[node name="box4" parent="." index="9" instance=ExtResource("19_pu5qf")]
+position = Vector2(-4730, 979)
+scale = Vector2(0.5, 0.5)
+skew = 0.0174533
+collision_layer = 2
+collision_mask = 15
+
+[node name="toilet" parent="." index="10" instance=ExtResource("20_wpqoi")]
+position = Vector2(-3539, 2222)
+rotation = 0.715585
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 15
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="9"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="12"]
 visible = false
 color = Color(0.164706, 0.164706, 0.164706, 1)
 script = ExtResource("21_f6aj3")

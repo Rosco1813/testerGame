@@ -35,6 +35,7 @@ var current_direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print('test')
 	set_walking(false)
 	set_idle(true)
 
