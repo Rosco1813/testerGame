@@ -7,6 +7,7 @@ extends CharacterBody2D
 signal shot_pistol(position, direction, knownDirection)
 signal throw_grendade(position, direction)
 
+
 var direction: Vector2 = Vector2.ZERO
 var knownDirection = 'down';
 @export var max_speed:int = 500
@@ -16,12 +17,8 @@ var aim: bool = false
 var shoot: bool = false
 var canShoot:bool = true
 
-var grenade:bool = false
-
-var ammoPrimary: int = 7
-var grenades:int = 4
-
-var roll:bool = false
+var roll:bool = true
+var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
 var walk:bool = false
 var idle:bool = false
 
@@ -31,20 +28,17 @@ var up:bool = false
 var down:bool = true
 
 var current_direction
-
+var is_animation_locked = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('test')
 	set_walking(false)
 	set_idle(true)
-
 
 func _physics_process(_delta):
 	if !aim and !shoot:
 		velocity = direction * speed
 		move_and_slide()
-
 	else:
 		velocity = Vector2.ZERO
 		
@@ -71,69 +65,68 @@ func _process(_delta):
 		set_idle(false)
 		set_roll(false);
 
-	
-
-
 	if Input.is_action_just_pressed("attack") and aim:
 		velocity = Vector2.ZERO
-		ammoPrimary= use_weapon(ammoPrimary, 'pistol')
-		print( " : direction : ", direction)
 		
 		if direction.y == 1:
 			selected_laser = laser_markers[3]
-			if canShoot:
+			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesDown.emitting = true
+				Globals.laser_amount -= 1
 				knownDirection = 'down';
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
 				
 		if direction.y == -1:
 			selected_laser = laser_markers[1]
-			if canShoot:
+			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesUp.emitting = true
+				Globals.laser_amount -= 1
 				knownDirection = 'up';
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
 				
 		if direction.x == 1:
 			selected_laser = laser_markers[0]
-			if canShoot:
+			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesRight.emitting = true
+				Globals.laser_amount -= 1
 				knownDirection = 'right';
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
+				
 		if direction.x == -1:
 			selected_laser = laser_markers[2]
-			if canShoot:
+			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesLeft.emitting = true
+				Globals.laser_amount -= 1
 				knownDirection = 'left';
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
-
-		
+				
 #		if ammoPrimary != 0:
 		#emit the position se selected
 		set_walking(false)
 		set_idle(false)
+		
 		if canShoot:
 #			set_shoot(true)
 			canShoot = false
 #			shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 			$pistolTimer.start()
-			
-	if Input.is_action_just_pressed("roll") and direction:
+	
+	if Input.is_action_just_pressed("roll") and direction and roll and Globals.stamina > 10:
 		speed = 800
+		Globals.stamina -= 33
+#		update_stats.emit()
 		set_shoot(false)
 		set_roll(true)
 
-	
-	if Input.is_action_just_pressed("secondary action"):
-		grenades = use_weapon(grenades, 'grenade')
-
+	if Input.is_action_just_pressed("secondary action") and Globals.grenade_amount > 0:
+#		grenades = use_weapon(grenades, 'grenade')
 		velocity = Vector2.ZERO
 		laser_markers = $LaserStartPositions.get_children()
 		var selected_grenade
-
 		if down:
 			selected_grenade = laser_markers[3]
 			knownDirection = 'down';
@@ -149,18 +142,15 @@ func _process(_delta):
 		if left:
 			selected_grenade = laser_markers[2]
 			knownDirection = 'left';
-#		if grenades  != 0:
+			
+		Globals.grenade_amount -= 1
 		throw_grendade.emit(selected_grenade.global_position, direction, knownDirection)
-		
-
 
 func set_shoot(value = false):
 	shoot = value
 	animationTree["parameters/conditions/is_shooting"] = value
-	
 
 func set_roll(value = false):
-	roll = value
 	animationTree["parameters/conditions/is_rolling"] = value
 
 func set_aim(value = false):
@@ -177,17 +167,7 @@ func set_idle(value):
 	idle = value
 	animationTree["parameters/conditions/is_idle"] =  value
 	
-func use_weapon(ammo, ammoType):
-#	print('Ammo left : ', ammo, ' type : ', ammoType)
-	if ammo > 0:
-		return ammo -1
-	else:
-		if ammoType == 'pistol':
-			$pistolTimer.start()
-		elif ammoType == 'grenade':
-			$grenadeTimer.start()
-		return ammo
-		
+
 func set_direction(value):
 	right = value
 	left = value
@@ -195,12 +175,12 @@ func set_direction(value):
 	down = value
 
 func _on_pistol_timer_timeout():
-	ammoPrimary = 7
+#	ammoPrimary = 7
 	canShoot = true
 
 
-func _on_grenade_timer_timeout():
-	grenades = 4
+#func _on_grenade_timer_timeout():
+#	grenades = 4
 
 
 func update_blend_position(blendDirection):
@@ -209,8 +189,8 @@ func update_blend_position(blendDirection):
 		set_shoot(false)
 	if not Input.is_action_pressed("roll"):
 		set_roll(false)
-	if Input.is_action_just_pressed("down"):
 		
+	if Input.is_action_just_pressed("down"):
 		down = true
 		up = false
 		right = false
@@ -237,33 +217,38 @@ func update_blend_position(blendDirection):
 	animationTree["parameters/aim/blend_position"] = blendDirection
 
 
-
-func stop_animation(blendDirection):
-	animationTree["parameters/idle/blend_position"] = blendDirection
-
+#func stop_animation(blendDirection):
+#	animationTree["parameters/idle/blend_position"] = blendDirection
 
 
 func _on_animation_tree_animation_finished(anim_name):
-	
-		var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
-		for roll in rolling:
-			if roll == anim_name:
+		for r in rolling:
+			if r == anim_name:
 				canShoot = true
 				speed = max_speed
+#				roll = false
 				
-#	print('Animation finished : ', anim_name)
-
-
 
 func _on_animation_tree_animation_started(anim_name):
-	var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
-	for roll in rolling:
-		if roll == anim_name:
+	for r in rolling:
+		if r == anim_name:
 			canShoot = false
 			
-				
-	
+			$rollTimer.start()
+func _on_roll_timer_timeout():
+	if Globals.stamina >= 100:
+		$rollTimer.stop()
+		roll = true
+	if Globals.stamina < 100:
+		Globals.stamina += 20
+#	update_stats.emit()
+	print('roll timer end')
 
-
-
-
+#func add_item(type:String)->void:
+#	print('player scene ')
+#	print(type)
+#	if type == 'laser':
+#		Globals.laser_amount += 4
+#	if type == 'grenade':
+#		Globals.grenade_amount +=2
+#	update_stats.emit()

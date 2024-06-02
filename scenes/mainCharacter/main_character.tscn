@@ -541,18 +541,6 @@ tracks/4/keys = {
 "method": &"set_roll"
 }]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_6srbj"]
 resource_name = "roll_left_2"
@@ -618,18 +606,6 @@ tracks/4/keys = {
 "args": [false],
 "method": &"set_roll"
 }]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_k64oi"]
@@ -762,18 +738,6 @@ tracks/4/keys = {
 "args": [false],
 "method": &"set_roll"
 }]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_p75hb"]
@@ -1451,11 +1415,11 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_uo2ub")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_y80re")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, 1.1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_huyub")
-blend_point_3/pos = Vector2(0, -0.9)
-min_space = Vector2(-1, -1.1)
-max_space = Vector2(1, 1.1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1.18, -1.1)
+max_space = Vector2(1.29, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q18jw"]
@@ -1603,7 +1567,7 @@ parameters/aim/blend_position = Vector2(-0.127188, -0.0186666)
 parameters/idle/blend_position = Vector2(-0.00251049, 1.08057)
 parameters/roll/blend_position = Vector2(-0.00350058, 0.978552)
 parameters/shoot/blend_position = Vector2(0.00652373, 0.734475)
-parameters/walk/blend_position = Vector2(-0.220238, 0.0428572)
+parameters/walk/blend_position = Vector2(-0.0021978, -0.895307)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12.4219, 311.793)
@@ -1612,6 +1576,9 @@ shape = SubResource("RectangleShape2D_eq35x")
 [node name="pistolTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="rollTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="grenadeTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -1670,7 +1637,7 @@ metadata/_edit_lock_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="animation_player_changed" from="AnimationTree" to="." method="_on_animation_tree_animation_player_changed"]
 [connection signal="animation_started" from="AnimationTree" to="." method="_on_animation_tree_animation_started"]
 [connection signal="timeout" from="pistolTimer" to="." method="_on_pistol_timer_timeout"]
+[connection signal="timeout" from="rollTimer" to="." method="_on_roll_timer_timeout"]
 [connection signal="timeout" from="grenadeTimer" to="." method="_on_grenade_timer_timeout"]

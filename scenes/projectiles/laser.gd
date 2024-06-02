@@ -6,10 +6,9 @@ var currentDirection: String = 'down'
 var velocity = Vector2()
 var direction: Vector2 = Vector2.UP
 var shootDirection = 1
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$lazerTimeLimit.start()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

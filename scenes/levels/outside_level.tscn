@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bkxitf83buhk3"]
+[gd_scene load_steps=36 format=3 uid="uid://bkxitf83buhk3"]
 
 [ext_resource type="PackedScene" uid="uid://da8jdqp23nd6b" path="res://scenes/levels/level.tscn" id="1_3tvo0"]
 [ext_resource type="PackedScene" uid="uid://1ge20akteoro" path="res://scenes/objects/gate.tscn" id="2_3nkjf"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bmxl3j6yxs5o" path="res://scenes/enemy/drone.tscn" id="20_i0ug5"]
 [ext_resource type="PackedScene" uid="uid://c4qdtovjxjfi7" path="res://scenes/objects/items/toilet.tscn" id="20_wpqoi"]
 [ext_resource type="Script" path="res://scenes/levels/CanvasModulate.gd" id="21_f6aj3"]
+[ext_resource type="PackedScene" uid="uid://bjuee3cbb3lhy" path="res://scenes/items/item.tscn" id="22_kkkou"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l1ra0"]
 polygon = PackedVector2Array(-60, 62, -64, -60, 195, -60, 195, 58)
@@ -85,7 +86,7 @@ texture_region_size = Vector2i(390, 390)
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_l1ra0")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -195, 195, -195, 195, 195, -195, 195)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66, -62, 195, -58, 195, 60, -62, 62)
 1:0/0 = 0
 1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_3ijm7")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -152,7 +153,7 @@ script = ExtResource("2_ar14f")
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
-position = Vector2(-2072.23, 1440.14)
+position = Vector2(-2091, 1377)
 scale = Vector2(4.99987, 4.23723)
 skew = 0.383972
 texture = ExtResource("2_hnmr0")
@@ -161,7 +162,7 @@ region_rect = Rect2(-693.52, -388.667, 4313.96, 2857.64)
 
 [node name="dirtPatch" type="Sprite2D" parent="Ground" index="1"]
 modulate = Color(0.996078, 0.839216, 0.572549, 1)
-position = Vector2(630, 568)
+position = Vector2(630, 581)
 rotation = 1.53589
 texture = ExtResource("3_jcm8e")
 
@@ -238,57 +239,60 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(-5210.5, 2474.5)
 scale = Vector2(1.61, 1.458)
 
-[node name="MainCharacter" parent="." index="2"]
-position = Vector2(-5217, 2408)
-
-[node name="Gate" parent="." index="3" instance=ExtResource("2_3nkjf")]
-position = Vector2(-73, -209)
-
-[node name="Drone" parent="." index="4" instance=ExtResource("20_i0ug5")]
-position = Vector2(-4629, 2806)
-
-[node name="chest" parent="." index="5" instance=ExtResource("18_e61qf")]
-position = Vector2(3956, -342)
-scale = Vector2(0.6, 0.6)
-collision_layer = 2
-collision_mask = 15
-
-[node name="box" parent="." index="6" instance=ExtResource("19_pu5qf")]
-position = Vector2(-4790, 837)
-scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 15
-
-[node name="box2" parent="." index="7" instance=ExtResource("19_pu5qf")]
+[node name="box2" parent="Ground" index="16" instance=ExtResource("19_pu5qf")]
 position = Vector2(-4581, 871)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 15
 
-[node name="box3" parent="." index="8" instance=ExtResource("19_pu5qf")]
+[node name="box3" parent="Ground" index="17" instance=ExtResource("19_pu5qf")]
 position = Vector2(-3559, 1466)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 15
 
-[node name="box4" parent="." index="9" instance=ExtResource("19_pu5qf")]
+[node name="box4" parent="Ground" index="18" instance=ExtResource("19_pu5qf")]
 position = Vector2(-4730, 979)
 scale = Vector2(0.5, 0.5)
-skew = 0.0174533
+skew = 0.0174532
 collision_layer = 2
 collision_mask = 15
 
-[node name="toilet" parent="." index="10" instance=ExtResource("20_wpqoi")]
+[node name="chest" parent="Ground" index="19" instance=ExtResource("18_e61qf")]
+position = Vector2(3956, -342)
+scale = Vector2(0.6, 0.6)
+collision_layer = 2
+collision_mask = 15
+
+[node name="box" parent="Ground" index="20" instance=ExtResource("19_pu5qf")]
+position = Vector2(-4790, 837)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 15
+
+[node name="toilet" parent="Ground" index="21" instance=ExtResource("20_wpqoi")]
 position = Vector2(-3539, 2222)
 rotation = 0.715585
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 15
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="12"]
+[node name="Drone" parent="Ground" index="22" instance=ExtResource("20_i0ug5")]
+position = Vector2(-4629, 2806)
+
+[node name="MainCharacter" parent="." index="2"]
+position = Vector2(928, 1233)
+
+[node name="Gate" parent="." index="3" instance=ExtResource("2_3nkjf")]
+position = Vector2(-85, -198)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
 visible = false
 color = Color(0.164706, 0.164706, 0.164706, 1)
 script = ExtResource("21_f6aj3")
+
+[node name="Item" parent="." index="7" instance=ExtResource("22_kkkou")]
+position = Vector2(918, 993)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exit" from="Ground/House" to="." method="_on_house_player_exit"]
