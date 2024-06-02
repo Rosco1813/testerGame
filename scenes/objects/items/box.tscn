@@ -4,34 +4,34 @@
 [ext_resource type="Script" path="res://scenes/objects/items/box.gd" id="2_bllfq"]
 [ext_resource type="Texture2D" uid="uid://deyj0hjie575j" path="res://graphics/objects/box/Box.png" id="2_h2587"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr37"]
-size = Vector2(290.039, 94.5311)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8htja"]
 size = Vector2(90.4359, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2d8oi"]
 size = Vector2(290, 295.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwr37"]
+size = Vector2(290.039, 94.5311)
+
 [node name="box" instance=ExtResource("1_y851j")]
 script = ExtResource("2_bllfq")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_h2587")
-
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-3.18621, -147)
-scale = Vector2(1, 1)
-skew = 0.767945
-shape = SubResource("RectangleShape2D_fwr37")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="2"]
 position = Vector2(149.026, 2.9739)
 rotation = -0.785398
-scale = Vector2(1, 1)
 skew = 0.785398
 shape = SubResource("RectangleShape2D_8htja")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(-41, 40.25)
 shape = SubResource("RectangleShape2D_2d8oi")
+
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2(-3.18621, -147)
+skew = 0.767945
+shape = SubResource("RectangleShape2D_fwr37")
+
+[node name="Marker2D" type="Marker2D" parent="SpanPositions" index="0"]

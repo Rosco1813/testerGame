@@ -15,7 +15,6 @@ var violet: Color = Color("4565be")
 @onready var stamina_bar:ProgressBar = $StaminaContainer/ProgressBar
 
 func _ready():
-#	update_stat_text()
 	Globals.connect("stat_change", update_stat_text)
 	update_laser_text()
 	update_grenade_text()
@@ -46,8 +45,8 @@ func update_grenade_text():
 func update_health_text():
 #	print('update health text : ', Globals.health)
 	health_bar.value = Globals.health
+	
 func update_stamina_text():
-	print('update stamina text')
 	stamina_bar.value = Globals.stamina
 	
 func update_stat_text():

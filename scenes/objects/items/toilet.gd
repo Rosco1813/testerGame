@@ -2,4 +2,8 @@ extends itemsParent
 
 
 func hit():
-	print(' toilet blasted')
+	if not opened:
+		$LidSprite.hide()
+		var pos = $SpanPositions/Marker2D.global_position
+		open.emit(pos, currentDirection)
+		opened = true

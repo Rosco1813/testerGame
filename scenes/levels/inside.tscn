@@ -103,7 +103,7 @@ rotation = 1.5708
 scale = Vector2(0.3, 0.3)
 metadata/_edit_lock_ = true
 
-[node name="MainCharacter" parent="." index="2"]
+[node name="MainCharacter" parent="." index="3"]
 position = Vector2(6661, 616)
 metadata/_edit_group_ = true
 
@@ -113,7 +113,22 @@ scale = Vector2(0.740625, 0.65625)
 texture = ExtResource("6_up1ox")
 metadata/_edit_lock_ = true
 
-[node name="Lights" parent="." index="3"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
+energy = 0.5
+blend_mode = 1
+shadow_enabled = true
+shadow_color = Color(0.411765, 0.956863, 0.956863, 0.580392)
+metadata/_edit_lock_ = true
+
+[node name="ExitGateArea" type="Area2D" parent="." index="5"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
+position = Vector2(7281.75, 781)
+shape = SubResource("RectangleShape2D_5gtga")
+
+[node name="Lights" parent="." index="6"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -234,21 +249,6 @@ self_modulate = Color(1, 1, 1, 0.172549)
 position = Vector2(-6846.38, 1007)
 scale = Vector2(3.96927, 2.88344)
 texture = ExtResource("9_32qj2")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
-energy = 0.5
-blend_mode = 1
-shadow_enabled = true
-shadow_color = Color(0.411765, 0.956863, 0.956863, 0.580392)
-metadata/_edit_lock_ = true
-
-[node name="ExitGateArea" type="Area2D" parent="." index="5"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
-position = Vector2(7281.75, 781)
-shape = SubResource("RectangleShape2D_5gtga")
 
 [node name="Item" parent="." index="7" instance=ExtResource("12_nupnt")]
 position = Vector2(6064, 267)

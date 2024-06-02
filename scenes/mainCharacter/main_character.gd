@@ -228,27 +228,18 @@ func _on_animation_tree_animation_finished(anim_name):
 				speed = max_speed
 #				roll = false
 				
-
 func _on_animation_tree_animation_started(anim_name):
 	for r in rolling:
 		if r == anim_name:
 			canShoot = false
-			
 			$rollTimer.start()
+			
 func _on_roll_timer_timeout():
 	if Globals.stamina >= 100:
 		$rollTimer.stop()
 		roll = true
 	if Globals.stamina < 100:
 		Globals.stamina += 20
-#	update_stats.emit()
-	print('roll timer end')
 
-#func add_item(type:String)->void:
-#	print('player scene ')
-#	print(type)
-#	if type == 'laser':
-#		Globals.laser_amount += 4
-#	if type == 'grenade':
-#		Globals.grenade_amount +=2
-#	update_stats.emit()
+
+
