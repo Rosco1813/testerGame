@@ -128,6 +128,8 @@ func _process(_delta):
 	if Input.is_action_just_pressed("roll") and direction and roll and Globals.stamina > 10:
 		speed = 800
 		Globals.stamina -= 33
+		if Globals.stamina < 0:
+			Globals.stamina = 0
 #		update_stats.emit()
 		set_shoot(false)
 		set_roll(true)
@@ -244,6 +246,6 @@ func _on_roll_timer_timeout():
 		$rollTimer.stop()
 		roll = true
 	if Globals.stamina < 100:
-		Globals.stamina += 20
+		Globals.stamina += 35
 
 

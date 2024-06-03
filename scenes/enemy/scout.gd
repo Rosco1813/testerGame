@@ -6,6 +6,7 @@ var player_nearby: bool = false
 var can_laser: bool = true
 var right_laser:bool = true
 
+var health: int = 30
 
 
 func _process(_delta):
@@ -20,6 +21,9 @@ func _process(_delta):
 			right_laser = !right_laser
 			$LaserCoolDown.start()
 func hit():
+	health -= 10
+	if health < 1:
+		queue_free()
 #	print('scout was hit')
 	pass
 

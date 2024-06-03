@@ -7,7 +7,7 @@ var SPEED = 100.0
 
 var player_nearby: bool = false
 var can_laser: bool = true
-
+var health:int = 40
 
 func _process(_delta):
 #	var direction = Vector2.RIGHT
@@ -24,6 +24,9 @@ func _process(_delta):
 	
 func hit():
 #	print('drone was hit')
+	health -= 10
+	if health < 1:
+		queue_free()
 	pass
 #	queue_free()
 
