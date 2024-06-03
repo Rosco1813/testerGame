@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi0yijtwknmm7"]
+[gd_scene load_steps=7 format=3 uid="uid://bi0yijtwknmm7"]
 
 [ext_resource type="Texture2D" uid="uid://coh38vw8kpmwv" path="res://graphics/enemies/scout.png" id="1_3eaia"]
 [ext_resource type="Script" path="res://scenes/enemy/scout.gd" id="1_wwsnc"]
+[ext_resource type="Shader" path="res://scenes/enemy/scout.gdshader" id="2_pphh7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ap5n"]
+shader = ExtResource("2_pphh7")
+shader_parameter/color = Color(0.941176, 0.8, 0.541176, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvenu"]
 radius = 61.0082
@@ -11,10 +17,11 @@ radius = 850.071
 
 [node name="Scout" type="CharacterBody2D" groups=["Entity", "Scouts"]]
 collision_layer = 2
-collision_mask = 15
+collision_mask = 13
 script = ExtResource("1_wwsnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0ap5n")
 rotation = 1.5708
 texture = ExtResource("1_3eaia")
 
@@ -37,8 +44,15 @@ position = Vector2(75, -59)
 [node name="Marker2D2" type="Marker2D" parent="LaserSpawnPosition"]
 position = Vector2(82, -14)
 
-[node name="LaserCoolDown" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="LaserTimer" type="Timer" parent="Timers"]
+
+[node name="HitPerFrame" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
-[connection signal="timeout" from="LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
+[connection signal="timeout" from="Timers/LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="Timers/HitPerFrame" to="." method="_on_hit_per_frame_timeout"]

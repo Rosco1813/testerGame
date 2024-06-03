@@ -293,14 +293,14 @@ position = Vector2(1213, 978)
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("22_bw5nd")]
 light_mask = 2
 visibility_layer = 11
-position = Vector2(-846, 2114)
+position = Vector2(-3462, 74)
 
 [node name="Drone" parent="Enemies" index="1" instance=ExtResource("20_i0ug5")]
 position = Vector2(838, 2058)
 collision_mask = 11
 
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(17.9995, 1854)
+position = Vector2(-2357, 24.0005)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exit" from="Ground/House" to="." method="_on_house_player_exit"]

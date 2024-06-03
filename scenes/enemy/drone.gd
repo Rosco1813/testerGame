@@ -7,6 +7,7 @@ var SPEED = 100.0
 
 var player_nearby: bool = false
 var can_laser: bool = true
+var can_damage:bool = true
 var health:int = 40
 
 func _process(_delta):
@@ -20,11 +21,15 @@ func _process(_delta):
 			var direction: Vector2 = (Globals.player_pos - position).normalized()
 			laser.emit(pos, direction)
 			can_laser = false
-			$LaserCoolDown.start()
+			$Timers/LaserCoolDown.start()
 	
 func hit():
 #	print('drone was hit')
-	health -= 10
+	if can_damage:
+		health -= 10
+		can_damage = false
+		$Timers/HitPerFrame.start()
+		$DroneImage.material.set_shader_parameter("progress", 1)
 	if health < 1:
 		queue_free()
 	pass
@@ -38,3 +43,8 @@ func _on_attack_area_body_exited(_body):
 
 func _on_laser_cool_down_timeout():
 	can_laser = true
+
+
+func _on_hit_per_frame_timeout():
+	can_damage = true
+	$DroneImage.material.set_shader_parameter("progress", 0)

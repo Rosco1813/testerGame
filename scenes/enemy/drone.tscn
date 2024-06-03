@@ -1,7 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmxl3j6yxs5o"]
+[gd_scene load_steps=8 format=3 uid="uid://bmxl3j6yxs5o"]
 
 [ext_resource type="Script" path="res://scenes/enemy/drone.gd" id="1_2evcp"]
 [ext_resource type="Texture2D" uid="uid://cd8dljnmm8jjy" path="res://graphics/enemies/drone.png" id="1_60myg"]
+[ext_resource type="Shader" path="res://scenes/enemy/drone.gdshader" id="2_6ruf0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m8kek"]
+shader = ExtResource("2_6ruf0")
+shader_parameter/color = Color(0.952941, 0.72549, 0.937255, 1)
+shader_parameter/progress = 0.0
+
+[sub_resource type="GDScript" id="GDScript_f8fv7"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxgmx"]
 radius = 53.0377
@@ -15,15 +35,19 @@ collision_mask = 15
 script = ExtResource("1_2evcp")
 
 [node name="DroneImage" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_m8kek")
 rotation = 1.5708
 texture = ExtResource("1_60myg")
+script = SubResource("GDScript_f8fv7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-6, 1)
 rotation = -1.55509
 shape = SubResource("CircleShape2D_sxgmx")
 
 [node name="attackArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
 position = Vector2(-2, -1)
@@ -35,9 +59,16 @@ position = Vector2(81, 3)
 [node name="Marker2D" type="Marker2D" parent="LaserSpawnPosition"]
 position = Vector2(61, 2)
 
-[node name="LaserCoolDown" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="LaserCoolDown" type="Timer" parent="Timers"]
+
+[node name="HitPerFrame" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
 
 [connection signal="body_entered" from="attackArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
-[connection signal="timeout" from="LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
+[connection signal="timeout" from="Timers/LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
+[connection signal="timeout" from="Timers/HitPerFrame" to="." method="_on_hit_per_frame_timeout"]

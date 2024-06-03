@@ -39,7 +39,6 @@ func set_lazer_direction(knownDirection):
 
 func _on_body_entered(body):
 	if "hit" in body:
-		print('LAZER HIT object : ', body)
 		body.hit()
 	queue_free()
 	
