@@ -2,14 +2,14 @@ extends Node
 
 signal stat_change
 
-var laser_amount = 6:
+var laser_amount = 99:
 	get:
 		return laser_amount
 	set(value):
 		laser_amount = value
 		stat_change.emit()
 
-var grenade_amount = 3:
+var grenade_amount = 99:
 	get:
 		return grenade_amount
 	set(value):

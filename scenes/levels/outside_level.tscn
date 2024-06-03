@@ -300,7 +300,7 @@ position = Vector2(838, 2058)
 collision_mask = 11
 
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(-5145, 1270)
+position = Vector2(17.9995, 1854)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exit" from="Ground/House" to="." method="_on_house_player_exit"]

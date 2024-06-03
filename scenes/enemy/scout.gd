@@ -4,11 +4,9 @@ signal laser(pos, direction)
 
 var player_nearby: bool = false
 var can_laser: bool = true
-
 var right_laser:bool = true
 
-func _ready():
-	pass # Replace with function body.
+
 
 func _process(_delta):
 	if player_nearby:
@@ -22,7 +20,8 @@ func _process(_delta):
 			right_laser = !right_laser
 			$LaserCoolDown.start()
 func hit():
-	print('scout was hit')
+#	print('scout was hit')
+	pass
 
 func _on_attack_area_body_entered(_body):
 	player_nearby = true

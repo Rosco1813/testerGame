@@ -7,9 +7,11 @@
 radius = 61.0082
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pl05"]
-radius = 455.054
+radius = 850.071
 
 [node name="Scout" type="CharacterBody2D" groups=["Entity", "Scouts"]]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_wwsnc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,7 +26,6 @@ shape = SubResource("CircleShape2D_xvenu")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_0pl05")
 
 [node name="LaserSpawnPosition" type="Node2D" parent="."]

@@ -29,6 +29,10 @@ var down: bool = true
 var current_direction
 var is_animation_locked = false
 
+
+
+func hit():
+	print('Man was hit')
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_walking(false)
@@ -242,5 +246,4 @@ func _on_roll_timer_timeout():
 	if Globals.stamina < 100:
 		Globals.stamina += 20
 
-func hit():
-	print('hit Main Man')
+

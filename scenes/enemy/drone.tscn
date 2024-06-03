@@ -7,7 +7,7 @@
 radius = 53.0377
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_155v0"]
-radius = 451.217
+radius = 867.13
 
 [node name="Drone" type="CharacterBody2D" groups=["Drones", "Entity"]]
 collision_layer = 2
@@ -30,6 +30,7 @@ position = Vector2(-2, -1)
 shape = SubResource("CircleShape2D_155v0")
 
 [node name="LaserSpawnPosition" type="Node2D" parent="."]
+position = Vector2(81, 3)
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawnPosition"]
 position = Vector2(61, 2)

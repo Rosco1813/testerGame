@@ -23,7 +23,8 @@ func _process(_delta):
 			$LaserCoolDown.start()
 	
 func hit():
-	print('hit drone')
+#	print('drone was hit')
+	pass
 #	queue_free()
 
 func _on_attack_area_body_entered(_body):
