@@ -1,20 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmxl3j6yxs5o"]
+[gd_scene load_steps=5 format=3 uid="uid://bmxl3j6yxs5o"]
 
 [ext_resource type="Script" path="res://scenes/enemy/drone.gd" id="1_2evcp"]
 [ext_resource type="Texture2D" uid="uid://cd8dljnmm8jjy" path="res://graphics/enemies/drone.png" id="1_60myg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxgmx"]
-radius = 67.0671
+radius = 53.0377
 
-[node name="Drone" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_155v0"]
+radius = 451.217
+
+[node name="Drone" type="CharacterBody2D" groups=["Drones", "Entity"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_2evcp")
 
 [node name="DroneImage" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_60myg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2)
+position = Vector2(-6, 1)
 rotation = -1.55509
 shape = SubResource("CircleShape2D_sxgmx")
+
+[node name="attackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackArea"]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_155v0")
+
+[node name="LaserSpawnPosition" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserSpawnPosition"]
+position = Vector2(61, 2)
+
+[node name="LaserCoolDown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="attackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]

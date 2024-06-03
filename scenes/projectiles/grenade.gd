@@ -2,16 +2,26 @@ extends RigidBody2D
 
 @export var speed: int = 400
 var direction: Vector2 = Vector2.UP
+var explosion_active:bool = false
+var explosion_radius:int = 400
 # Called when the node enters the scene tree for the first time.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += direction * speed * delta
+	if explosion_active:
+		var targets = get_tree().get_nodes_in_group("Container") + get_tree().get_nodes_in_group("Entity")
+#		print("explosion active")
+		for target in targets:
+			var in_range = target.global_position.distance_to(global_position) < explosion_radius
+			if "hit" in target and in_range:
+				target.hit()
 
 func explode():
 	$AnimationPlayer.play("Explosion")
-#	print('EXPLODE THIS BOMB BI***')
+	explosion_active = true
+
 
 func set_grenade_direction(knownDirection):
 	if knownDirection == 'down':

@@ -30,13 +30,11 @@ var stamina = 100:
 		stamina = value
 		stat_change.emit()
 		
-		
 var health = 60:
 	get:
 		return health
 	set(value):
 		health = value
 		stat_change.emit()
-		
-	
 
+var player_pos: Vector2

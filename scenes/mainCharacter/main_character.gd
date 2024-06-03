@@ -7,25 +7,24 @@ extends CharacterBody2D
 signal shot_pistol(position, direction, knownDirection)
 signal throw_grendade(position, direction)
 
-
 var direction: Vector2 = Vector2.ZERO
 var knownDirection = 'down';
-@export var max_speed:int = 500
-var speed:int = max_speed
+@export var max_speed: int = 500
+var speed: int = max_speed
 
 var aim: bool = false
 var shoot: bool = false
-var canShoot:bool = true
+var canShoot: bool = true
 
-var roll:bool = true
-var rolling = ['roll_down_2','roll_up_2','roll_left_2','roll_right_2']
-var walk:bool = false
-var idle:bool = false
+var roll: bool = true
+var rolling = ['roll_down_2', 'roll_up_2', 'roll_left_2', 'roll_right_2']
+var walk: bool = false
+var idle: bool = false
 
-var right:bool = false
-var left:bool = false
-var up:bool = false
-var down:bool = true
+var right: bool = false
+var left: bool = false
+var up: bool = false
+var down: bool = true
 
 var current_direction
 var is_animation_locked = false
@@ -35,18 +34,25 @@ func _ready():
 	set_walking(false)
 	set_idle(true)
 
-func _physics_process(_delta):
-	if !aim and !shoot:
-		velocity = direction * speed
-		move_and_slide()
-	else:
-		velocity = Vector2.ZERO
+#func _physics_process(_delta):
+#	if !aim and !shoot:
+#		velocity = direction * speed
+#		move_and_slide()
+#	else:
+#		velocity = Vector2.ZERO
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var laser_markers = $LaserStartPositions.get_children()
 	var selected_laser
 	direction = Input.get_vector("left", "right", "up", "down").normalized()
+	if !aim and !shoot:
+		velocity = direction * speed
+		move_and_slide()
+		Globals.player_pos = global_position
+	else:
+		velocity = Vector2.ZERO
+		
 	if direction != Vector2.ZERO:
 		update_blend_position(direction)
 		if not aim and not shoot:
@@ -77,7 +83,7 @@ func _process(_delta):
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
 				
-		if direction.y == -1:
+		if direction.y == - 1:
 			selected_laser = laser_markers[1]
 			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesUp.emitting = true
@@ -95,7 +101,7 @@ func _process(_delta):
 				shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
 				set_shoot(true)
 				
-		if direction.x == -1:
+		if direction.x == - 1:
 			selected_laser = laser_markers[2]
 			if canShoot and Globals.laser_amount > 0:
 				$gunPartilcesLeft.emitting = true
@@ -146,27 +152,26 @@ func _process(_delta):
 		Globals.grenade_amount -= 1
 		throw_grendade.emit(selected_grenade.global_position, direction, knownDirection)
 
-func set_shoot(value = false):
+func set_shoot(value=false):
 	shoot = value
 	animationTree["parameters/conditions/is_shooting"] = value
 
-func set_roll(value = false):
+func set_roll(value=false):
 	animationTree["parameters/conditions/is_rolling"] = value
 
-func set_aim(value = false):
+func set_aim(value=false):
 	aim = value
 	animationTree["parameters/conditions/is_shooting"] = not value
 	animationTree["parameters/conditions/is_aiming"] = value
 
-func set_walking(value = false):
+func set_walking(value=false):
 	walk = value
 	animationTree["parameters/conditions/is_walking"] = value
 	animationTree["parameters/conditions/is_rolling"] = not value
 	
 func set_idle(value):
 	idle = value
-	animationTree["parameters/conditions/is_idle"] =  value
-	
+	animationTree["parameters/conditions/is_idle"] = value
 
 func set_direction(value):
 	right = value
@@ -178,10 +183,8 @@ func _on_pistol_timer_timeout():
 #	ammoPrimary = 7
 	canShoot = true
 
-
 #func _on_grenade_timer_timeout():
 #	grenades = 4
-
 
 func update_blend_position(blendDirection):
 	if not Input.is_action_pressed("aim"):
@@ -216,10 +219,8 @@ func update_blend_position(blendDirection):
 	animationTree["parameters/roll/blend_position"] = blendDirection
 	animationTree["parameters/aim/blend_position"] = blendDirection
 
-
 #func stop_animation(blendDirection):
 #	animationTree["parameters/idle/blend_position"] = blendDirection
-
 
 func _on_animation_tree_animation_finished(anim_name):
 		for r in rolling:
@@ -241,5 +242,5 @@ func _on_roll_timer_timeout():
 	if Globals.stamina < 100:
 		Globals.stamina += 20
 
-
-
+func hit():
+	print('hit Main Man')
