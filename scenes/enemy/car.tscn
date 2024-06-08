@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxahw5w5jlu45"]
+
+[ext_resource type="Script" path="res://scenes/enemy/car.gd" id="1_a4ib2"]
+[ext_resource type="Texture2D" uid="uid://wrfqtb6tivj6" path="res://graphics/car/main.png" id="1_nsoed"]
+[ext_resource type="Texture2D" uid="uid://byo2exky31lqw" path="res://graphics/car/turret.png" id="3_8xv43"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0y72t"]
+radius = 739.926
+
+[node name="Car" type="PathFollow2D"]
+script = ExtResource("1_a4ib2")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(-226, -173, -211, -172, -195, -179, -141, -181, -114, -175, -98, -172, -90, -152, -90, -133, -92, -111, -107, -110, -95, -95, -56, -128, 10, -119, 6, -140, 12, -167, 61, -174, 116, -167, 123, -149, 124, -137, 119, -117, 108, -115, 117, -101, 136, -161, 146, -160, 170, -122, 173, -92, 185, -90, 185, -63, 175, -46, 187, -27, 186, 28, 175, 50, 185, 60, 187, 75, 185, 89, 172, 117, 147, 158, 133, 159, 118, 124, 119, 146, 113, 162, 100, 167, 65, 171, 33, 169, 6, 164, 2, 137, 4, 118, -54, 130, -94, 110, -89, 135, -92, 158, -96, 170, -136, 179, -170, 179, -210, 173, -228, 170, -231, 145, -225, 109, -213, 109, -230, 77, -233, 46, -272, 49, -297, 31, -296, -32, -275, -50, -241, -48, -229, -81, -215, -80, -224, -109, -231, -126, -231, -152)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_nsoed")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+position = Vector2(-2, 0)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+shape = SubResource("CircleShape2D_0y72t")
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret"]
+rotation = 1.5708
+texture = ExtResource("3_8xv43")
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret"]
+target_position = Vector2(33, 27)
+
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]

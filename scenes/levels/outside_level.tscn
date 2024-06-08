@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bkxitf83buhk3"]
+[gd_scene load_steps=40 format=3 uid="uid://bkxitf83buhk3"]
 
 [ext_resource type="PackedScene" uid="uid://da8jdqp23nd6b" path="res://scenes/levels/level.tscn" id="1_3tvo0"]
 [ext_resource type="PackedScene" uid="uid://1ge20akteoro" path="res://scenes/objects/gate.tscn" id="2_3nkjf"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0yijtwknmm7" path="res://scenes/enemy/scout.tscn" id="22_bw5nd"]
 [ext_resource type="PackedScene" uid="uid://bjuee3cbb3lhy" path="res://scenes/items/item.tscn" id="22_kkkou"]
 [ext_resource type="PackedScene" uid="uid://d3xedyy6uu2ld" path="res://scenes/enemy/bug.tscn" id="24_t2i2g"]
+[ext_resource type="PackedScene" uid="uid://dxahw5w5jlu45" path="res://scenes/enemy/car.tscn" id="25_cqaj2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l1ra0"]
 polygon = PackedVector2Array(-60, 62, -64, -60, 195, -60, 195, 58)
@@ -151,6 +152,10 @@ sources/0 = SubResource("TileSetAtlasSource_7v20w")
 sources/1 = SubResource("TileSetAtlasSource_4kgow")
 
 [sub_resource type="Curve2D" id="Curve2D_b6m6b"]
+_data = {
+"points": PackedVector2Array(746.705, 169.706, -746.705, -169.706, 2678, 1911, 186.676, 192.333, -186.676, -192.333, 1085, 1962, 226.274, -158.392, -226.274, 158.392, -1179, 2258, -11.3137, -164.049, 11.3137, 164.049, -1722, 3497, -480.833, -50.9117, 480.833, 50.9117, -1068, 3920, -362.039, 16.9706, 362.039, -16.9706, -619, 3920, -67.8823, 113.137, 67.8823, -113.137, 68, 3454, -356.382, 616.597, 356.382, -616.597, 314, 2979, 616.597, -373.352, -616.597, 373.352, 1559, 3208, -288.5, 0, 288.5, 0, 1746, 3623, 265.872, 214.96, -265.872, -214.96, 2678, 1911)
+}
+point_count = 11
 
 [node name="outside" instance=ExtResource("1_3tvo0")]
 script = ExtResource("2_ar14f")
@@ -325,10 +330,15 @@ position = Vector2(2403, -576)
 position = Vector2(-366, 651)
 
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(-4249, 2401)
+position = Vector2(2301, 1890)
 
-[node name="Path2D" type="Path2D" parent="." index="12"]
+[node name="CarPath" type="Path2D" parent="." index="12"]
+position = Vector2(40, -142)
 curve = SubResource("Curve2D_b6m6b")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("25_cqaj2")]
+position = Vector2(2678, 1911)
+rotation = -2.91812
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exit" from="Ground/House" to="." method="_on_house_player_exit"]
