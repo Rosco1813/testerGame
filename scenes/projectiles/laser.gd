@@ -14,16 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += direction  * speed * delta
-#	var targets = get_tree().get_nodes_in_group("Container") + get_tree().get_nodes_in_group("Entity")
-#	for target in targets:
-#		var in_range = target.global_position.distance_to(global_position)
-#		if "hit" in target and in_range:
-#			target.hit()
-
-
 
 func set_lazer_direction(knownDirection): 
-#	print('LAZER LAXER ', knownDirection)
 	currentDirection = knownDirection
 	if knownDirection == 'down':
 		$".".rotation_degrees = 180
@@ -41,6 +33,6 @@ func _on_body_entered(body):
 	if "hit" in body:
 		body.hit()
 	queue_free()
-	
+
 func _on_lazer_time_limit_timeout():
 	queue_free()

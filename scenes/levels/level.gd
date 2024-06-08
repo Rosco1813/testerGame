@@ -12,7 +12,6 @@ func _ready():
 		container.connect("open", _on_container_opened)
 	for scout in get_tree().get_nodes_in_group("Scouts"):
 		scout.connect('laser', _on_scout_laser)
-
 	for drone in get_tree().get_nodes_in_group("Drones"):
 		drone.connect('laser',_on_drone_laser)
 
@@ -38,8 +37,6 @@ func create_laser(pos, direction):
 	laser.direction = direction
 	$Projectiles.add_child(laser)
 	
-
-	
 func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	# godot does not now grenade is a rigid body,
 	# give it the type as to get access to linear velocity
@@ -48,10 +45,6 @@ func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	grenade.linear_velocity =direction * grenade.speed
 	grenade.set_grenade_direction(knownDirection)
 	$Projectiles.add_child(grenade)
-	
-
-
-
 
 func _on_scout_laser(pos, direction):
 	create_laser(pos, direction)

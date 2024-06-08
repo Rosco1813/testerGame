@@ -6,17 +6,20 @@ var player_nearby: bool = false
 var can_laser: bool = true
 var can_damage:bool = true
 var right_laser:bool = true
-
+var speed:int = 200
 var health: int = 30
 
 
 func _process(_delta):
+	var direction: Vector2 = (Globals.player_pos - position).normalized()
+	velocity = direction * speed
 	if player_nearby:
 		look_at(Globals.player_pos)
+		move_and_slide()
 		if can_laser:
 			var marker_node = $LaserSpawnPosition.get_child(right_laser)
 			var pos: Vector2 = marker_node.global_position
-			var direction: Vector2 = (Globals.player_pos - position).normalized()
+#			var direction: Vector2 = (Globals.player_pos - position).normalized()
 			laser.emit(pos, direction)
 			can_laser = false
 			right_laser = !right_laser

@@ -22,14 +22,16 @@ var shotgun_amount = 4:
 	set(value):
 		shotgun_amount = value
 		stat_change.emit()
-		
+
 var stamina = 100:
 	get:
 		return stamina
 	set(value):
 		stamina = value
 		stat_change.emit()
+		
 var can_damage:bool = true
+
 var health = 60:
 	get:
 		return health

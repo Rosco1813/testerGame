@@ -47,7 +47,7 @@ func _ready():
 #		velocity = Vector2.ZERO
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	var laser_markers = $LaserStartPositions.get_children()
 	var selected_laser
 	direction = Input.get_vector("left", "right", "up", "down").normalized()
@@ -134,6 +134,7 @@ func _process(_delta):
 #		update_stats.emit()
 		set_shoot(false)
 		set_roll(true)
+
 
 	if Input.is_action_just_pressed("secondary action") and Globals.grenade_amount > 0:
 #		grenades = use_weapon(grenades, 'grenade')

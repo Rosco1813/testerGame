@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbdbybhjkes24"
-path="res://.godot/imported/rat2BigMamu.png-07aad515c77c2bd755a15d78659241f8.ctex"
+path="res://.godot/imported/rat2BigMamu.png-67abdcef7feae17c60da8697aaba980a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/enemies/rat2BigMamu.png"
-dest_files=["res://.godot/imported/rat2BigMamu.png-07aad515c77c2bd755a15d78659241f8.ctex"]
+source_file="res://graphics/enemies/rat/rat2BigMamu.png"
+dest_files=["res://.godot/imported/rat2BigMamu.png-67abdcef7feae17c60da8697aaba980a.ctex"]
 
 [params]
 

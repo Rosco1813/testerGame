@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bkxitf83buhk3"]
+[gd_scene load_steps=38 format=3 uid="uid://bkxitf83buhk3"]
 
 [ext_resource type="PackedScene" uid="uid://da8jdqp23nd6b" path="res://scenes/levels/level.tscn" id="1_3tvo0"]
 [ext_resource type="PackedScene" uid="uid://1ge20akteoro" path="res://scenes/objects/gate.tscn" id="2_3nkjf"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scenes/levels/CanvasModulate.gd" id="21_f6aj3"]
 [ext_resource type="PackedScene" uid="uid://bi0yijtwknmm7" path="res://scenes/enemy/scout.tscn" id="22_bw5nd"]
 [ext_resource type="PackedScene" uid="uid://bjuee3cbb3lhy" path="res://scenes/items/item.tscn" id="22_kkkou"]
+[ext_resource type="PackedScene" uid="uid://d3xedyy6uu2ld" path="res://scenes/enemy/bug.tscn" id="24_t2i2g"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l1ra0"]
 polygon = PackedVector2Array(-60, 62, -64, -60, 195, -60, 195, 58)
@@ -152,6 +153,10 @@ sources/1 = SubResource("TileSetAtlasSource_4kgow")
 [node name="outside" instance=ExtResource("1_3tvo0")]
 script = ExtResource("2_ar14f")
 
+[node name="Ground" parent="." index="1"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
 position = Vector2(-2091, 1377)
@@ -237,7 +242,7 @@ rotation = -1.5708
 scale = Vector2(0.3, 0.3)
 
 [node name="LightFanAnimation" parent="Ground" index="15" instance=ExtResource("14_18paw")]
-position = Vector2(-5210.5, 2474.5)
+position = Vector2(-4160, 2546)
 scale = Vector2(1.61, 1.458)
 
 [node name="box2" parent="Ground" index="16" instance=ExtResource("19_pu5qf")]
@@ -299,8 +304,28 @@ position = Vector2(-3462, 74)
 position = Vector2(838, 2058)
 collision_mask = 11
 
+[node name="Drone2" parent="Enemies" index="2" instance=ExtResource("20_i0ug5")]
+position = Vector2(-6349, 3083)
+rotation = 0.942478
+collision_mask = 11
+
+[node name="Bug" parent="Enemies" index="3" instance=ExtResource("24_t2i2g")]
+position = Vector2(624, 1859)
+
+[node name="Bug2" parent="Enemies" index="4" instance=ExtResource("24_t2i2g")]
+position = Vector2(310, 2012)
+
+[node name="Bug3" parent="Enemies" index="5" instance=ExtResource("24_t2i2g")]
+position = Vector2(400, 1796)
+
+[node name="Bug4" parent="Enemies" index="6" instance=ExtResource("24_t2i2g")]
+position = Vector2(131, 1895)
+
+[node name="Bug5" parent="Enemies" index="7" instance=ExtResource("24_t2i2g")]
+position = Vector2(-3569, 3233)
+
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(-2357, 24.0005)
+position = Vector2(-6498, 2159)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exit" from="Ground/House" to="." method="_on_house_player_exit"]

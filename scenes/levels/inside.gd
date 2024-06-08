@@ -9,7 +9,6 @@ func _on_exit_gate_area_body_entered(_body):
 	Globals.stamina += missingHealth
 	TransitionLayer.change_scene("res://scenes/levels/outside_level.tscn")
 	
-
 func _on_enter_area_body_exited(_body):
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
