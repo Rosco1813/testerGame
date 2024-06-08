@@ -37,6 +37,7 @@ func hit():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_walking(false)
+#	set_roll(false)
 	set_idle(true)
 
 #func _physics_process(_delta):
@@ -175,7 +176,7 @@ func set_aim(value=false):
 func set_walking(value=false):
 	walk = value
 	animationTree["parameters/conditions/is_walking"] = value
-	animationTree["parameters/conditions/is_rolling"] = not value
+#	animationTree["parameters/conditions/is_rolling"] = not value
 	
 func set_idle(value):
 	idle = value
