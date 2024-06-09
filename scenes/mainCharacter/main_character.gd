@@ -48,8 +48,9 @@ func _ready():
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var selected_laser
-	var laser_markers = $LaserStartPositions.get_children()
+	var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
+
+#	var laser_markers = $LaserStartPositions.get_children()
 #	print('Direction : ', direction)
 #	print('Velocity : ', velocity)
 
@@ -91,26 +92,22 @@ func _process(delta):
 		set_roll(false);
 
 	if Input.is_action_just_pressed("attack") and aim:
-		
 		if  knownDirection == 'down':
-			selected_laser = laser_markers[3]
 			$gunPartilcesDown.emitting = true
 
 		if  knownDirection == 'up':
-			selected_laser = laser_markers[1]
 			$gunPartilcesUp.emitting = true
 
 		if  knownDirection == 'right':
-			selected_laser = laser_markers[0]
 			$gunPartilcesRight.emitting = true
 
 		if  knownDirection == 'left':
 			$gunPartilcesLeft.emitting = true
-			selected_laser = laser_markers[2]
 			
 		if canShoot and Globals.laser_amount > 0:
 			Globals.laser_amount -= 1
-			shot_pistol.emit(selected_laser.global_position, direction, knownDirection)
+#			selected_laser = $LaserStartPositions/RightPosition.global_position
+			shot_pistol.emit(aim_position, direction, knownDirection)
 			set_shoot(true)
 				
 		set_walking(false)
@@ -129,23 +126,10 @@ func _process(delta):
 		set_shoot(false)
 		set_roll(true)
 
-
 	if Input.is_action_just_pressed("secondary action") and Globals.grenade_amount > 0 and canShoot:
-		var selected_grenade
-		laser_markers = $LaserStartPositions.get_children()
-		
-		if knownDirection == 'down':
-			selected_grenade = laser_markers[3]
-
-		if knownDirection == 'up':
-			selected_grenade = laser_markers[1]
-			
-		if knownDirection == 'right':
-			selected_grenade = laser_markers[0]
-
-		if knownDirection == 'left':
-			selected_grenade = laser_markers[2]
-		throw_grendade.emit(selected_grenade.global_position, direction, knownDirection)
+#		var selected_grenade
+#		selected_grenade = $LaserStartPositions/RightPosition.global_position
+		throw_grendade.emit(aim_position, direction, knownDirection)
 		Globals.grenade_amount -= 1
 		
 func set_shoot(value=false):
@@ -197,10 +181,7 @@ func _on_animation_tree_animation_finished(anim_name):
 				roll = true
 				speed = max_speed
 				
-				
 
-
-				
 func _on_animation_tree_animation_started(anim_name):
 #	print('STARTED : ', speed )
 	for r in rolling:
