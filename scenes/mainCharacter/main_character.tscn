@@ -1851,7 +1851,6 @@ advance_mode = 2
 advance_condition = &"is_rolling"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gf535"]
-switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_idle"
 
@@ -1865,7 +1864,6 @@ advance_mode = 2
 advance_condition = &"is_rolling"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0gekf"]
-switch_mode = 1
 advance_mode = 2
 advance_condition = &"is_shooting"
 
@@ -1877,14 +1875,14 @@ advance_condition = &"is_aiming"
 advance_mode = 2
 advance_condition = &"is_walking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xwu7b"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6ehl"]
 switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evxdo"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_60vmh"]
 states/End/position = Vector2(126, 110)
@@ -1899,7 +1897,7 @@ states/shoot/node = SubResource("AnimationNodeBlendSpace2D_k30ln")
 states/shoot/position = Vector2(738, 54)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_eif40")
 states/walk/position = Vector2(738, 336)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q18jw"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_kjv88"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_l4w22"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5drld"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_wqct1"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_ff27i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_gf535"), "roll", "walk", SubResource("AnimationNodeStateMachineTransition_1yq01"), "walk", "roll", SubResource("AnimationNodeStateMachineTransition_usb2i"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_0gekf"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_u366x"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_ec03j"), "shoot", "aim", SubResource("AnimationNodeStateMachineTransition_xwu7b"), "roll", "aim", SubResource("AnimationNodeStateMachineTransition_y6ehl")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q18jw"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_kjv88"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_l4w22"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5drld"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_wqct1"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_ff27i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_gf535"), "roll", "walk", SubResource("AnimationNodeStateMachineTransition_1yq01"), "walk", "roll", SubResource("AnimationNodeStateMachineTransition_usb2i"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_0gekf"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_u366x"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_ec03j"), "roll", "aim", SubResource("AnimationNodeStateMachineTransition_y6ehl"), "shoot", "aim", SubResource("AnimationNodeStateMachineTransition_evxdo")]
 graph_offset = Vector2(0, -2.95235)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhn5q"]
@@ -2025,13 +2023,14 @@ one_shot = true
 metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-189, 35)
+position = Vector2(3, -72)
 scale = Vector2(0.729167, 1.86875)
 shadow_enabled = true
 shadow_color = Color(1, 0.501961, 0.435294, 0)
 shadow_filter = 2
 texture = ExtResource("8_12f2m")
 texture_scale = 0.3
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 modulate = Color(1, 1, 1, 0)
