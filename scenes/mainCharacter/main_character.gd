@@ -12,48 +12,25 @@ signal throw_grendade(position, direction)
 var speed: int = max_speed
 var direction: Vector2 = Vector2.ZERO
 var knownDirection = 'down';
-
 var aim: bool = false
 var shoot: bool = false
 var canShoot: bool = true
-
 var roll: bool = true
 var rolling = ['roll_down_2', 'roll_up_2', 'roll_left_2', 'roll_right_2']
 var walk: bool = false
 var idle: bool = false
 
-#var right: bool = false
-#var left: bool = false
-#var up: bool = false
-#var down: bool = true
-#var current_direction
-#var is_animation_locked = false
-
-
-
 func hit():
 	Globals.health -= 10
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_walking(false)
 	set_idle(true)
 
-#func _physics_process(_delta):
-#	if !aim and !shoot:
-#		velocity = direction * speed
-#		move_and_slide()
-#	else:
-#		velocity = Vector2.ZERO
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
-
-#	var laser_markers = $LaserStartPositions.get_children()
 #	print('Direction : ', direction)
 #	print('Velocity : ', velocity)
-
 	if roll:
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
 		
@@ -67,7 +44,6 @@ func _process(delta):
 		if not aim and not shoot:
 			set_walking(true)
 			set_idle(false)
-			
 	else:
 		velocity = Vector2.ZERO
 		set_idle(true)
@@ -92,24 +68,11 @@ func _process(delta):
 		set_roll(false);
 
 	if Input.is_action_just_pressed("attack") and aim:
-		if  knownDirection == 'down':
-			$gunPartilcesDown.emitting = true
-
-		if  knownDirection == 'up':
-			$gunPartilcesUp.emitting = true
-
-		if  knownDirection == 'right':
-			$gunPartilcesRight.emitting = true
-
-		if  knownDirection == 'left':
-			$gunPartilcesLeft.emitting = true
-			
 		if canShoot and Globals.laser_amount > 0:
 			Globals.laser_amount -= 1
-#			selected_laser = $LaserStartPositions/RightPosition.global_position
 			shot_pistol.emit(aim_position, direction, knownDirection)
+			$gunPartilcesRight.emitting = true
 			set_shoot(true)
-				
 		set_walking(false)
 		set_idle(false)
 		
@@ -127,8 +90,6 @@ func _process(delta):
 		set_roll(true)
 
 	if Input.is_action_just_pressed("secondary action") and Globals.grenade_amount > 0 and canShoot:
-#		var selected_grenade
-#		selected_grenade = $LaserStartPositions/RightPosition.global_position
 		throw_grendade.emit(aim_position, direction, knownDirection)
 		Globals.grenade_amount -= 1
 		

@@ -330,11 +330,13 @@ position = Vector2(2403, -576)
 position = Vector2(-366, 651)
 
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(2301, 1890)
+position = Vector2(-4226, 2550)
 
 [node name="CarPath" type="Path2D" parent="." index="12"]
 position = Vector2(40, -142)
 curve = SubResource("Curve2D_b6m6b")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Car" parent="CarPath" index="0" instance=ExtResource("25_cqaj2")]
 position = Vector2(2678, 1911)

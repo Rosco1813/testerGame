@@ -138,6 +138,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [Vector2(6, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gunPartilcesRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(3, -61)]
+}
 
 [sub_resource type="Animation" id="Animation_ldwot"]
 resource_name = "aim_left_2"
@@ -201,6 +213,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(-472, -226)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gunPartilcesRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-390, -214)]
 }
 
 [sub_resource type="Animation" id="Animation_5e5f1"]
@@ -266,6 +290,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [Vector2(495, -218)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gunPartilcesRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(433, -222)]
+}
 
 [sub_resource type="Animation" id="Animation_n0ta3"]
 resource_name = "aim_up_2"
@@ -329,6 +365,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(-5, -557)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gunPartilcesRight:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-11, -485)]
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nm84a"]
@@ -421,6 +469,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(6, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gunPartilcesRight:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(405, -219)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gunPartilcesRight:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(3, -61)]
+}
 
 [sub_resource type="Animation" id="Animation_lddmt"]
 resource_name = "idle_left_2"
@@ -508,6 +580,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(-472, -226)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gunPartilcesRight:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-390, -214)]
 }
 
 [sub_resource type="Animation" id="Animation_icxqb"]
@@ -597,6 +681,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(495, -218)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gunPartilcesRight:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(433, -222)]
+}
 
 [sub_resource type="Animation" id="Animation_21kwk"]
 resource_name = "idle_up_2"
@@ -684,6 +780,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(-5, -557)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gunPartilcesRight:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-11, -485)]
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlsc4"]
@@ -2020,7 +2128,8 @@ script = ExtResource("1_a35yv")
 z_index = 1
 
 [node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(6, 0)
+position = Vector2(-5, -557)
+metadata/_edit_lock_ = true
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
 position = Vector2(6, -7)
@@ -2065,7 +2174,7 @@ disabled = true
 metadata/_edit_lock_ = true
 
 [node name="pistolTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="rollTimer" type="Timer" parent="."]
@@ -2076,40 +2185,12 @@ wait_time = 5.0
 one_shot = true
 
 [node name="gunPartilcesRight" type="GPUParticles2D" parent="."]
-position = Vector2(405, -219)
+position = Vector2(-11, -485)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
-metadata/_edit_lock_ = true
-
-[node name="gunPartilcesDown" type="GPUParticles2D" parent="."]
-position = Vector2(7, -75)
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_hhn5q")
-texture = ExtResource("7_341th")
-lifetime = 0.2
-one_shot = true
-metadata/_edit_lock_ = true
-
-[node name="gunPartilcesUp" type="GPUParticles2D" parent="."]
-position = Vector2(-17, -485)
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_hhn5q")
-texture = ExtResource("7_341th")
-lifetime = 0.2
-one_shot = true
-metadata/_edit_lock_ = true
-
-[node name="gunPartilcesLeft" type="GPUParticles2D" parent="."]
-position = Vector2(-389, -217)
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_hhn5q")
-texture = ExtResource("7_341th")
-lifetime = 0.2
-one_shot = true
-metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(3, -72)
