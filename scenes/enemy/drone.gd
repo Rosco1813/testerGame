@@ -9,7 +9,7 @@ var speed_multiplier: int = 1
 var player_nearby: bool = false
 var can_laser: bool = true
 var can_damage:bool = true
-var health:int = 40
+var health:int = 10
 var explosion_active:bool = false
 
 

@@ -74,6 +74,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [SubResource("CircleShape2D_pbrmw")]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LaserStartPositions/RightPosition:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_07ilk"]
 resource_name = "aim_down_2"
@@ -125,30 +137,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [9, 10]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(6, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("gunPartilcesRight:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(3, -61)]
 }
 
 [sub_resource type="Animation" id="Animation_ldwot"]
@@ -202,30 +190,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [3, 4]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-472, -226)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("gunPartilcesRight:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-390, -214)]
-}
 
 [sub_resource type="Animation" id="Animation_5e5f1"]
 resource_name = "aim_right_2"
@@ -278,30 +242,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [2, 0]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(495, -218)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("gunPartilcesRight:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(433, -222)]
-}
 
 [sub_resource type="Animation" id="Animation_n0ta3"]
 resource_name = "aim_up_2"
@@ -353,30 +293,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [6, 7]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-5, -557)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("gunPartilcesRight:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-11, -485)]
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nm84a"]
@@ -457,42 +373,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [Vector2(6, 30)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(6, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(405, -219)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("gunPartilcesRight:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(3, -61)]
-}
 
 [sub_resource type="Animation" id="Animation_lddmt"]
 resource_name = "idle_left_2"
@@ -568,30 +448,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(6, 30)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-472, -226)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-390, -214)]
 }
 
 [sub_resource type="Animation" id="Animation_icxqb"]
@@ -669,30 +525,6 @@ tracks/5/keys = {
 "update": 1,
 "values": [Vector2(6, 30)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(495, -218)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(433, -222)]
-}
 
 [sub_resource type="Animation" id="Animation_21kwk"]
 resource_name = "idle_up_2"
@@ -768,30 +600,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(6, 30)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("LaserStartPositions/RightPosition:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-5, -557)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-11, -485)]
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlsc4"]
@@ -872,7 +680,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -974,7 +782,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1076,7 +884,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1178,7 +986,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1252,7 +1060,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2, 0.35),
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.35),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 10]
@@ -1264,7 +1072,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -1293,24 +1101,12 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(6, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(3, -61)]
+"values": [Vector2(14, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_u66qs"]
 resource_name = "shoot_left_2"
-length = 0.35
+length = 0.14
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1355,7 +1151,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.175, 0.3),
+"times": PackedFloat32Array(0, 0.075, 0.125),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [5, 15, 4]
@@ -1367,7 +1163,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.35),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -1396,24 +1192,12 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-472, -226)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-390, -214)]
+"values": [Vector2(-429, -224)]
 }
 
 [sub_resource type="Animation" id="Animation_k76aw"]
 resource_name = "shoot_right_2"
-length = 0.35
+length = 0.14
 step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1458,7 +1242,7 @@ tracks/3/path = NodePath("CharacterImage:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.05, 0.125),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 13, 0]
@@ -1470,7 +1254,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.35),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -1496,22 +1280,10 @@ tracks/6/path = NodePath("LaserStartPositions/RightPosition:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.025),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(495, -218)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(433, -222)]
+"values": [Vector2(464, -226)]
 }
 
 [sub_resource type="Animation" id="Animation_gj7st"]
@@ -1573,7 +1345,7 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -1602,19 +1374,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-5, -557)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gunPartilcesRight:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-11, -485)]
+"values": [Vector2(-11, -475)]
 }
 
 [sub_resource type="Animation" id="Animation_f8mws"]
@@ -2163,6 +1923,10 @@ advance_condition = &"is_walking"
 advance_mode = 2
 advance_condition = &"is_rolling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0gekf"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u366x"]
 advance_mode = 2
 advance_condition = &"is_aiming"
@@ -2176,11 +1940,7 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"is_aiming"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sehpp"]
-advance_mode = 2
-advance_condition = &"is_shooting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ffvxs"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evxdo"]
 switch_mode = 2
 advance_mode = 2
 
@@ -2194,10 +1954,10 @@ states/idle/position = Vector2(235, 202)
 states/roll/node = SubResource("AnimationNodeBlendSpace2D_nxcvo")
 states/roll/position = Vector2(946, 218)
 states/shoot/node = SubResource("AnimationNodeBlendSpace2D_k30ln")
-states/shoot/position = Vector2(795, 45)
+states/shoot/position = Vector2(738, 54)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_eif40")
 states/walk/position = Vector2(738, 336)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q18jw"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_kjv88"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_l4w22"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5drld"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_wqct1"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_ff27i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_gf535"), "roll", "walk", SubResource("AnimationNodeStateMachineTransition_1yq01"), "walk", "roll", SubResource("AnimationNodeStateMachineTransition_usb2i"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_u366x"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_ec03j"), "roll", "aim", SubResource("AnimationNodeStateMachineTransition_y6ehl"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_sehpp"), "shoot", "aim", SubResource("AnimationNodeStateMachineTransition_ffvxs")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q18jw"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_kjv88"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_l4w22"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_5drld"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_wqct1"), "idle", "roll", SubResource("AnimationNodeStateMachineTransition_ff27i"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_gf535"), "roll", "walk", SubResource("AnimationNodeStateMachineTransition_1yq01"), "walk", "roll", SubResource("AnimationNodeStateMachineTransition_usb2i"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_0gekf"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_u366x"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_ec03j"), "roll", "aim", SubResource("AnimationNodeStateMachineTransition_y6ehl"), "shoot", "aim", SubResource("AnimationNodeStateMachineTransition_evxdo")]
 graph_offset = Vector2(0, -2.95235)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhn5q"]
@@ -2224,7 +1984,17 @@ script = ExtResource("1_a35yv")
 z_index = 1
 
 [node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(6, 0)
+
+[node name="UpPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-12, -533)
+metadata/_edit_lock_ = true
+
+[node name="LeftPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-474, -223)
+metadata/_edit_lock_ = true
+
+[node name="DownPosition" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(8, -16)
 metadata/_edit_lock_ = true
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
@@ -2264,12 +2034,12 @@ parameters/walk/blend_position = Vector2(-0.0021978, -0.895307)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 32
-position = Vector2(6, 222)
+position = Vector2(-2, 7)
 shape = SubResource("CircleShape2D_pbrmw")
 metadata/_edit_lock_ = true
 
 [node name="pistolTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.5
 one_shot = true
 
 [node name="rollTimer" type="Timer" parent="."]
@@ -2280,12 +2050,40 @@ wait_time = 5.0
 one_shot = true
 
 [node name="gunPartilcesRight" type="GPUParticles2D" parent="."]
-position = Vector2(3, -61)
+position = Vector2(405, -219)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
 lifetime = 0.2
 one_shot = true
+metadata/_edit_lock_ = true
+
+[node name="gunPartilcesDown" type="GPUParticles2D" parent="."]
+position = Vector2(7, -75)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_hhn5q")
+texture = ExtResource("7_341th")
+lifetime = 0.2
+one_shot = true
+metadata/_edit_lock_ = true
+
+[node name="gunPartilcesUp" type="GPUParticles2D" parent="."]
+position = Vector2(-17, -485)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_hhn5q")
+texture = ExtResource("7_341th")
+lifetime = 0.2
+one_shot = true
+metadata/_edit_lock_ = true
+
+[node name="gunPartilcesLeft" type="GPUParticles2D" parent="."]
+position = Vector2(-389, -217)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_hhn5q")
+texture = ExtResource("7_341th")
+lifetime = 0.2
+one_shot = true
+metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(3, -72)

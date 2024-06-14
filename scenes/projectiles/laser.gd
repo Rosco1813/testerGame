@@ -14,6 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += direction  * speed * delta
+#	print('Lazer position : : ', direction)
 
 func set_lazer_direction(knownDirection): 
 	currentDirection = knownDirection
@@ -21,7 +22,8 @@ func set_lazer_direction(knownDirection):
 		$".".rotation_degrees = 180
 		direction = Vector2.DOWN
 	if knownDirection == 'up':
-		pass
+		$".".rotation_degrees = 0
+		direction = Vector2.UP
 	if knownDirection == 'right':
 		$".".rotation_degrees = 90
 		direction = Vector2.RIGHT

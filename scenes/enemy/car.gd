@@ -9,9 +9,9 @@ func _process(delta):
 		$Turret.look_at(Globals.player_pos)
 
 
-func _on_notice_area_body_entered(body):
+func _on_notice_area_body_entered(_body):
 	player_near = true
 
 
-func _on_notice_area_body_exited(body):
+func _on_notice_area_body_exited(_body):
 	player_near = false

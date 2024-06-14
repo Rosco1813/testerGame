@@ -413,7 +413,7 @@ position = Vector2(4871, -297)
 position = Vector2(6661, 616)
 metadata/_edit_group_ = true
 
-[node name="PointLight2D2" type="PointLight2D" parent="MainCharacter" index="13"]
+[node name="PointLight2D2" type="PointLight2D" parent="MainCharacter" index="12"]
 position = Vector2(17.5, -240)
 scale = Vector2(0.740625, 0.65625)
 texture = ExtResource("6_up1ox")

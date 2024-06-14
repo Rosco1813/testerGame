@@ -20,6 +20,8 @@ var rolling = ['roll_down_2', 'roll_up_2', 'roll_left_2', 'roll_right_2']
 var walk: bool = false
 var idle: bool = false
 
+var aiming: bool = false
+
 func hit():
 	Globals.health -= 10
 
@@ -27,8 +29,8 @@ func _ready():
 	set_walking(false)
 	set_idle(true)
 
-func _process(delta):
-	var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
+func _process(_delta):
+	
 #	print('Direction : ', direction)
 #	print('Velocity : ', velocity)
 	if roll:
@@ -62,17 +64,26 @@ func _process(delta):
 		knownDirection = 'left'
 		
 	if Input.is_action_pressed('aim'):
-		set_aim(true)
+		aiming = true
 		set_walking(false)
 		set_idle(false)
 		set_roll(false);
+		set_aim(true)
+	
+#	if Input.is_action_just_released("aim"):
+#		aiming = false
+#		set_aim(false)
 
-	if Input.is_action_just_pressed("attack") and aim:
+	if Input.is_action_just_pressed("attack") and aiming:
+#		$stopAimTimer.start()
+#		canAim = false
 		if canShoot and Globals.laser_amount > 0:
+			var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
 			Globals.laser_amount -= 1
 			shot_pistol.emit(aim_position, direction, knownDirection)
 			$gunPartilcesRight.emitting = true
 			set_shoot(true)
+			
 		set_walking(false)
 		set_idle(false)
 		
@@ -80,7 +91,7 @@ func _process(delta):
 			canShoot = false
 			$pistolTimer.start()
 	
-	if Input.is_action_just_pressed("roll") and direction and roll and Globals.stamina > 10:
+	if Input.is_action_just_pressed("roll") and direction and roll and Globals.stamina > 10 and not aim:
 		speed = 1000
 		if canShoot:
 			Globals.stamina -= 20
@@ -90,6 +101,7 @@ func _process(delta):
 		set_roll(true)
 
 	if Input.is_action_just_pressed("secondary action") and Globals.grenade_amount > 0 and canShoot:
+		var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
 		throw_grendade.emit(aim_position, direction, knownDirection)
 		Globals.grenade_amount -= 1
 		
@@ -157,6 +169,9 @@ func _on_roll_timer_timeout():
 		$rollTimer.stop()
 	if Globals.stamina < 100:
 		Globals.stamina += 35
+
+
+
 
 
 

@@ -20,7 +20,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 "
 
@@ -185,8 +185,8 @@ libraries = {
 "": SubResource("AnimationLibrary_yahf1")
 }
 
-[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="attackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="attackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="Timers/LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
 [connection signal="timeout" from="Timers/HitPerFrame" to="." method="_on_hit_per_frame_timeout"]

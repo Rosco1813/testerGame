@@ -7,7 +7,7 @@ var can_take_damage: bool = true
 var can_attack: bool = true
 var active:bool = false
 var speed:int = 300
-var health: int = 20
+var health: int = 10
 
 func _process(_delta):
 	var direction: Vector2 = (Globals.player_pos - position).normalized()

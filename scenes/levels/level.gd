@@ -24,10 +24,26 @@ func _on_container_opened(pos, direction):
 	$Items.call_deferred('add_child', item)
 	
 	
-func _on_main_character_shot_pistol(pos, _direction, knownDirection):
+func _on_main_character_shot_pistol(pos, direction, knownDirection):
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos
-	laser.set_lazer_direction(knownDirection)
+	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
+#	laser.linear_velocity =direction * laser.speed
+#	laser.set_lazer_direction(knownDirection)
+	if laser.direction !=  Vector2.ZERO:
+		laser.direction = direction
+	if laser.direction == Vector2.ZERO:
+		laser.set_lazer_direction(knownDirection)
+#		print('NO DIRECTION FOR LAZER ') 
+#		if knownDirection == 'down':
+#			direction = Vector2.DOWN
+#		if knownDirection == 'up':
+#			pass
+#		if knownDirection == 'right':
+#			direction = Vector2.RIGHT
+#		if knownDirection == 'left':
+#			direction = Vector2.LEFT
+		
 	$Projectiles.add_child(laser)
 	
 func create_laser(pos, direction):
