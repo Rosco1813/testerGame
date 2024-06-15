@@ -18,10 +18,13 @@ collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_rxkhn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Torso" type="Sprite2D" parent="."]
+position = Vector2(7, 0)
 rotation = 1.5708
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_xijv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Torso"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
