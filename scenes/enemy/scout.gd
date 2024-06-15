@@ -24,7 +24,7 @@ func _process(_delta):
 			can_laser = false
 			right_laser = !right_laser
 			$Timers/LaserTimer.start()
-			
+
 func hit():
 	print('hit can damage')
 	if can_damage:
@@ -51,7 +51,7 @@ func _on_attack_area_body_exited(_body):
 func _on_hit_per_frame_timeout():
 #	$HitPerFrame.stop()
 	can_damage = true
-	
+
 
 
 func _on_laser_timer_timeout():

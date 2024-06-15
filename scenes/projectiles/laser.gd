@@ -16,7 +16,7 @@ func _process(delta):
 	position += direction  * speed * delta
 #	print('Lazer position : : ', direction)
 
-func set_lazer_direction(knownDirection): 
+func set_lazer_direction(knownDirection):
 	currentDirection = knownDirection
 	if knownDirection == 'down':
 		$".".rotation_degrees = 180

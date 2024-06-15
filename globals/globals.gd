@@ -29,7 +29,7 @@ var stamina = 100:
 	set(value):
 		stamina = value
 		stat_change.emit()
-		
+
 var can_damage:bool = true
 
 var health = 60:
@@ -50,4 +50,4 @@ var player_pos: Vector2
 func player_i_frames_timer():
 	await get_tree().create_timer(0.5).timeout
 	can_damage = true
-	
+

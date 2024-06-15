@@ -21,7 +21,7 @@ func _ready():
 
 func _process(delta):
 	var direction: Vector2 = (Globals.player_pos - position).normalized()
-	
+
 	velocity = direction * speed * speed_multiplier
 	if player_nearby:
 		look_at(Globals.player_pos)
@@ -30,7 +30,7 @@ func _process(delta):
 		if collision:
 			explosion_active = true
 			Globals.health -=10
-			
+
 			$AnimationPlayer.play("explosion")
 		if can_laser:
 			var pos: Vector2 = $LaserSpawnPosition/Marker2D.global_position
@@ -41,15 +41,15 @@ func _process(delta):
 	if explosion_active:
 		var targets = get_tree().get_nodes_in_group("Container") + get_tree().get_nodes_in_group("Entity")
 		for target in targets:
-			var in_range = target.global_position.distance_to(global_position) < 400 
-			
+			var in_range = target.global_position.distance_to(global_position) < 400
+
 			if in_range and "hit" in target:
 				target.hit()
 
 func stop_movement():
 	speed_multiplier = 0
 
-	
+
 func hit():
 	if can_damage:
 		health -= 10

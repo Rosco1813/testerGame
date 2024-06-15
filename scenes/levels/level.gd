@@ -22,8 +22,8 @@ func _on_container_opened(pos, direction):
 	item.direction = direction
 	#call deferred when spawing items ontop of the box messes with physics calc, deferred stops that
 	$Items.call_deferred('add_child', item)
-	
-	
+
+
 func _on_main_character_shot_pistol(pos, direction, knownDirection):
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos
@@ -34,7 +34,7 @@ func _on_main_character_shot_pistol(pos, direction, knownDirection):
 		laser.direction = direction
 	if laser.direction == Vector2.ZERO:
 		laser.set_lazer_direction(knownDirection)
-#		print('NO DIRECTION FOR LAZER ') 
+#		print('NO DIRECTION FOR LAZER ')
 #		if knownDirection == 'down':
 #			direction = Vector2.DOWN
 #		if knownDirection == 'up':
@@ -43,16 +43,16 @@ func _on_main_character_shot_pistol(pos, direction, knownDirection):
 #			direction = Vector2.RIGHT
 #		if knownDirection == 'left':
 #			direction = Vector2.LEFT
-		
+
 	$Projectiles.add_child(laser)
-	
+
 func create_laser(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
 	$Projectiles.add_child(laser)
-	
+
 func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	# godot does not now grenade is a rigid body,
 	# give it the type as to get access to linear velocity

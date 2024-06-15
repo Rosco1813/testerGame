@@ -30,17 +30,17 @@ func _ready():
 	set_idle(true)
 
 func _process(_delta):
-	
+
 #	print('Direction : ', direction)
 #	print('Velocity : ', velocity)
 	if roll:
 		direction = Input.get_vector("left", "right", "up", "down").normalized()
-		
+
 	if !aim and !shoot:
 		velocity = direction * speed
 		move_and_slide()
 		Globals.player_pos = global_position
-		
+
 	if direction != Vector2.ZERO:
 		update_blend_position(direction)
 		if not aim and not shoot:
@@ -53,7 +53,7 @@ func _process(_delta):
 		set_aim(false)
 		set_roll(false)
 		set_shoot(false)
-			
+
 	if direction.y == 1:
 		knownDirection = 'down'
 	if direction.y == -1:
@@ -62,14 +62,15 @@ func _process(_delta):
 		knownDirection ='right'
 	if direction.x == -1:
 		knownDirection = 'left'
-		
+
 	if Input.is_action_pressed('aim'):
 		aiming = true
+
 		set_walking(false)
 		set_idle(false)
 		set_roll(false);
 		set_aim(true)
-	
+
 #	if Input.is_action_just_released("aim"):
 #		aiming = false
 #		set_aim(false)
@@ -83,14 +84,14 @@ func _process(_delta):
 			shot_pistol.emit(aim_position, direction, knownDirection)
 			$gunPartilcesRight.emitting = true
 			set_shoot(true)
-			
+
 		set_walking(false)
 		set_idle(false)
-		
+
 		if canShoot:
 			canShoot = false
 			$pistolTimer.start()
-	
+
 	if Input.is_action_just_pressed("roll") and direction and roll and Globals.stamina > 10 and not aim:
 		speed = 1000
 		if canShoot:
@@ -104,9 +105,10 @@ func _process(_delta):
 		var aim_position: Vector2 = $LaserStartPositions/RightPosition.global_position
 		throw_grendade.emit(aim_position, direction, knownDirection)
 		Globals.grenade_amount -= 1
-		
+
 func set_shoot(value=false):
 	shoot = value
+	velocity = Vector2.ZERO
 	animationTree["parameters/conditions/is_shooting"] = value
 
 func set_roll(value=false):
@@ -120,13 +122,13 @@ func set_aim(value=false):
 func set_walking(value=false):
 	walk = value
 	animationTree["parameters/conditions/is_walking"] = value
-	
+
 func set_idle(value):
 	idle = value
 	animationTree["parameters/conditions/is_idle"] = value
 	if value:
 		speed = max_speed
-		
+
 func _on_pistol_timer_timeout():
 	canShoot = true
 
@@ -153,7 +155,7 @@ func _on_animation_tree_animation_finished(anim_name):
 				canShoot = true
 				roll = true
 				speed = max_speed
-				
+
 
 func _on_animation_tree_animation_started(anim_name):
 #	print('STARTED : ', speed )
@@ -163,7 +165,7 @@ func _on_animation_tree_animation_started(anim_name):
 			roll = false
 			$rollTimer.start()
 
-#stamina timer 
+#stamina timer
 func _on_roll_timer_timeout():
 	if Globals.stamina >= 100:
 		$rollTimer.stop()

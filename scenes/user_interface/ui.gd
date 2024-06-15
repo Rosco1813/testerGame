@@ -29,10 +29,10 @@ func update_color(amount:int, num_to_check:float, label:Label, icon:TextureRect)
 
 	if percentage > 66:
 		label.modulate = green
-		
+
 	elif percentage > 33:
 		label.modulate = oragnge
-		
+
 	else:
 		label.modulate = red
 
@@ -41,14 +41,14 @@ func update_laser_text():
 
 func update_grenade_text():
 	update_color(3, Globals.grenade_amount, grenade_label, grenade_icon)
-	
+
 func update_health_text():
 #	print('update health text : ', Globals.health)
 	health_bar.value = Globals.health
-	
+
 func update_stamina_text():
 	stamina_bar.value = Globals.stamina
-	
+
 func update_stat_text():
 	update_laser_text()
 	update_grenade_text()

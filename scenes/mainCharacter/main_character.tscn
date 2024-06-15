@@ -2264,7 +2264,7 @@ parameters/walk/blend_position = Vector2(-0.0021978, -0.895307)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 32
-position = Vector2(6, 222)
+position = Vector2(6, 30)
 shape = SubResource("CircleShape2D_pbrmw")
 metadata/_edit_lock_ = true
 

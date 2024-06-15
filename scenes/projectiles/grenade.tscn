@@ -169,7 +169,6 @@ texture = ExtResource("1_m65h1")
 shape = SubResource("CircleShape2D_phg3o")
 
 [node name="Explosion" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(1, 1)
 texture = ExtResource("3_4juaj")
 hframes = 8
@@ -189,3 +188,5 @@ color = Color(0.709804, 0.105882, 0.298039, 0.988235)
 energy = 13.3
 texture = ExtResource("4_xstj5")
 texture_scale = 0.15
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

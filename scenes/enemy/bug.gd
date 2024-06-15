@@ -33,7 +33,7 @@ func _on_hit_per_frame_timeout():
 
 func _on_attack_cool_down_timeout():
 	$AnimatedSprite2D.play("attack")
-	
+
 func _on_attack_area_2d_body_entered(_body):
 	player_nearby = true
 	$AnimatedSprite2D.play('attack')

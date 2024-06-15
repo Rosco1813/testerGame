@@ -182,9 +182,9 @@ scale_max = 0.4
 scale_curve = SubResource("CurveTexture_2jy25")
 anim_offset_max = 1.0
 
-[node name="Bug" type="CharacterBody2D" groups=["Entity"]]
+[node name="Bug" type="CharacterBody2D" groups=["Bugs", "Entity"]]
 collision_layer = 2
-collision_mask = 29
+collision_mask = 15
 script = ExtResource("1_s7ww0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
