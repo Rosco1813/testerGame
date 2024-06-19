@@ -26,13 +26,13 @@ func _process(delta):
 	if player_nearby:
 		look_at(Globals.player_pos)
 		var collision = move_and_collide(velocity * delta)
-		print('collision : ', collision)
+#		print('collision : ', collision)
 		if collision:
 			explosion_active = true
 			Globals.health -=10
 
 			$AnimationPlayer.play("explosion")
-		if can_laser:
+		if can_laser and health > 1:
 			var pos: Vector2 = $LaserSpawnPosition/Marker2D.global_position
 #			var direction: Vector2 = (Globals.player_pos - position).normalized()
 			laser.emit(pos, direction)
@@ -51,13 +51,15 @@ func stop_movement():
 
 
 func hit():
+	$Sounds/HitSound.play()
 	if can_damage:
 		health -= 10
 		can_damage = false
 		$Timers/HitPerFrame.start()
 		$DroneImage.material.set_shader_parameter("progress", 1)
 	if health < 1:
-		$AnimationPlayer.play("explosion")
+		$Sounds/Explosion.play()
+#		$AnimationPlayer.play("explosion")
 		explosion_active = true
 
 

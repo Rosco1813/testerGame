@@ -17,6 +17,7 @@ func _process(_delta):
 		move_and_slide()
 
 func hit():
+	$AudioStreamPlayer2D.play()
 	if can_take_damage:
 		can_take_damage = false
 		health -= 10

@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmxl3j6yxs5o"]
+[gd_scene load_steps=14 format=3 uid="uid://bmxl3j6yxs5o"]
 
 [ext_resource type="Script" path="res://scenes/enemy/drone.gd" id="1_2evcp"]
 [ext_resource type="Texture2D" uid="uid://cd8dljnmm8jjy" path="res://graphics/enemies/drone.png" id="1_60myg"]
 [ext_resource type="Shader" path="res://scenes/enemy/drone.gdshader" id="2_6ruf0"]
 [ext_resource type="Texture2D" uid="uid://bx2lsax0vbamu" path="res://graphics/explosions/explosion_3.png" id="4_vnhco"]
+[ext_resource type="AudioStream" uid="uid://v3v5ja1s35lr" path="res://audio/solid_impact.ogg" id="5_lyfhc"]
+[ext_resource type="AudioStream" uid="uid://ffa7lxwi7e8f" path="res://audio/explosion.wav" id="6_2skf2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m8kek"]
 shader = ExtResource("2_6ruf0")
@@ -113,6 +115,21 @@ tracks/4/keys = {
 "method": &"stop_movement"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sounds/Explosion")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_2skf2")
+}],
+"times": PackedFloat32Array(0.05)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yahf1"]
 _data = {
@@ -184,6 +201,16 @@ frame = 23
 libraries = {
 "": SubResource("AnimationLibrary_yahf1")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2(0, 5)
+stream = ExtResource("5_lyfhc")
+volume_db = 10.0
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="Sounds"]
+volume_db = 20.0
 
 [connection signal="body_entered" from="attackArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]

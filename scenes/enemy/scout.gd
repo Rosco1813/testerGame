@@ -27,6 +27,7 @@ func _process(_delta):
 
 func hit():
 	print('hit can damage')
+	$AudioStreamPlayer2D.play()
 	if can_damage:
 		health -= 10
 		can_damage = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dat1unlwx1xob"]
+[gd_scene load_steps=8 format=3 uid="uid://dat1unlwx1xob"]
 
 [ext_resource type="PackedScene" uid="uid://ce37oeiod4eh1" path="res://scenes/objects/items/item_container.tscn" id="1_y851j"]
 [ext_resource type="Script" path="res://scenes/objects/items/box.gd" id="2_bllfq"]
 [ext_resource type="Texture2D" uid="uid://deyj0hjie575j" path="res://graphics/objects/box/Box.png" id="2_h2587"]
+[ext_resource type="AudioStream" uid="uid://v3v5ja1s35lr" path="res://audio/solid_impact.ogg" id="4_5hh3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8htja"]
 size = Vector2(90.4359, 292)
@@ -35,3 +36,6 @@ skew = 0.767945
 shape = SubResource("RectangleShape2D_fwr37")
 
 [node name="Marker2D" type="Marker2D" parent="SpanPositions" index="0"]
+
+[node name="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("4_5hh3f")

@@ -2,6 +2,7 @@ extends Node
 
 signal stat_change
 
+var player_hit_sound:AudioStreamPlayer2D
 var laser_amount = 99:
 	get:
 		return laser_amount
@@ -42,6 +43,7 @@ var health = 60:
 			if can_damage:
 				can_damage = false
 				player_i_frames_timer()
+				player_hit_sound.play()
 				health = max(value, 0)
 		stat_change.emit()
 
@@ -51,3 +53,7 @@ func player_i_frames_timer():
 	await get_tree().create_timer(0.5).timeout
 	can_damage = true
 
+func _ready():
+	player_hit_sound = AudioStreamPlayer2D.new()
+	player_hit_sound.stream = load("res://audio/solid_impact.ogg")
+	add_child(player_hit_sound)

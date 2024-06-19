@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxahw5w5jlu45"]
+[gd_scene load_steps=9 format=3 uid="uid://dxahw5w5jlu45"]
 
 [ext_resource type="Script" path="res://scenes/enemy/car.gd" id="1_a4ib2"]
 [ext_resource type="Texture2D" uid="uid://wrfqtb6tivj6" path="res://graphics/car/main.png" id="1_nsoed"]
 [ext_resource type="Texture2D" uid="uid://byo2exky31lqw" path="res://graphics/car/turret.png" id="3_8xv43"]
 [ext_resource type="Texture2D" uid="uid://cpj8kdnn11e23" path="res://graphics/explosions/gun.png" id="4_npfk0"]
+[ext_resource type="AudioStream" uid="uid://v3v5ja1s35lr" path="res://audio/solid_impact.ogg" id="5_lkc2h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0y72t"]
 radius = 739.926
@@ -120,5 +121,15 @@ libraries = {
 "": SubResource("AnimationLibrary_g55g3")
 }
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="HitTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lkc2h")
+
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
+[connection signal="timeout" from="Timers/HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -9,6 +9,7 @@ var shootDirection = 1
 
 func _ready():
 	$lazerTimeLimit.start()
+#	$AudioStreamPlayer2D.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
