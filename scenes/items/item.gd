@@ -26,19 +26,16 @@ func _ready():
 		$Sprite2D. texture = item_texture
 	if type == 'small_health':
 		item_texture = load("res://graphics/items/Small_Health_Front.png")
-		$Sprite2D. texture = item_texture
 	if type == 'files':
 		item_texture = load("res://graphics/items/Files.png")
-		$Sprite2D. texture = item_texture
 	if type == 'shotgun_ammo':
 		item_texture = load("res://graphics/items/Shotgun_Ammo.png")
-		$Sprite2D. texture = item_texture
 
 	tween.set_parallel(true)
 	tween.tween_property(self, 'position', target_pos, 0.5)
 	tween.tween_property(self, 'scale', Vector2(1,1), 0.3).from(Vector2(0,0))
 
-func _process(delta):
+func _process(_delta):
 #	rotation += rotation_speed * delta
 	pass
 

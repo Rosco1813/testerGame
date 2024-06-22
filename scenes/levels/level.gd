@@ -26,6 +26,7 @@ func _on_container_opened(pos, direction):
 
 func _on_main_character_shot_pistol(pos, direction, knownDirection):
 	var laser = laser_scene.instantiate() as Area2D
+	print('laser instantiated main character')
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 #	laser.linear_velocity =direction * laser.speed
@@ -48,6 +49,7 @@ func _on_main_character_shot_pistol(pos, direction, knownDirection):
 
 func create_laser(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D
+
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
@@ -57,6 +59,7 @@ func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	# godot does not now grenade is a rigid body,
 	# give it the type as to get access to linear velocity
 	var grenade = grenade_scene.instantiate() as RigidBody2D
+	print('GRENADE INSTANTIATED')
 	grenade.position = pos
 	grenade.linear_velocity =direction * grenade.speed
 	grenade.set_grenade_direction(knownDirection)
