@@ -167,7 +167,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-4096, 92, -3995, -152,
 script = ExtResource("2_ar14f")
 
 [node name="Ground" parent="." index="1"]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
@@ -320,9 +319,6 @@ script = ExtResource("21_f6aj3")
 
 [node name="Item" parent="." index="7" instance=ExtResource("22_kkkou")]
 position = Vector2(1213, 978)
-
-[node name="Enemies" parent="." index="8"]
-metadata/_edit_lock_ = true
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("22_bw5nd")]
 light_mask = 2

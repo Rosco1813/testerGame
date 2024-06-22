@@ -14,7 +14,8 @@ func _ready():
 		scout.connect('laser', _on_scout_laser)
 	for drone in get_tree().get_nodes_in_group("Drones"):
 		drone.connect('laser',_on_drone_laser)
-
+#func _process(_delta):
+#	pass
 func _on_container_opened(pos, direction):
 	var item = item_scene.instantiate()
 	item.position = pos
@@ -26,24 +27,13 @@ func _on_container_opened(pos, direction):
 
 func _on_main_character_shot_pistol(pos, direction, knownDirection):
 	var laser = laser_scene.instantiate() as Area2D
-	print('laser instantiated main character')
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
-#	laser.linear_velocity =direction * laser.speed
-#	laser.set_lazer_direction(knownDirection)
 	if laser.direction !=  Vector2.ZERO:
 		laser.direction = direction
 	if laser.direction == Vector2.ZERO:
 		laser.set_lazer_direction(knownDirection)
-#		print('NO DIRECTION FOR LAZER ')
-#		if knownDirection == 'down':
-#			direction = Vector2.DOWN
-#		if knownDirection == 'up':
-#			pass
-#		if knownDirection == 'right':
-#			direction = Vector2.RIGHT
-#		if knownDirection == 'left':
-#			direction = Vector2.LEFT
+
 
 	$Projectiles.add_child(laser)
 
