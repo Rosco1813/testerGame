@@ -4,6 +4,8 @@ class_name LevelParent
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene:PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 var item_scene:PackedScene = preload("res://scenes/items/item.tscn")
+#var cursor_location:Vector2
+#var cursor_direction:Vector2
 
 
 
@@ -19,22 +21,27 @@ func _ready():
 func _on_container_opened(pos, direction):
 	var item = item_scene.instantiate()
 	item.position = pos
-	print('container opened')
+#	print('container opened')
 	item.direction = direction
 	#call deferred when spawing items ontop of the box messes with physics calc, deferred stops that
 	$Items.call_deferred('add_child', item)
 
 
-func _on_main_character_shot_pistol(pos, direction, knownDirection):
+func _on_main_character_shot_pistol(pos, direction):
 	var laser = laser_scene.instantiate() as Area2D
+
+#	print('globals cursor pos = ', Globals.cursor_pos)
+#	laser.position = pos
+#	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.position = pos
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
-	if laser.direction !=  Vector2.ZERO:
-		laser.direction = direction
-	if laser.direction == Vector2.ZERO:
-		laser.set_lazer_direction(knownDirection)
-
-
+	laser.direction = direction
+#	print('shooing position: ', laser.position)
+#	print('shooting direction : ', laser.direction)
+#	if laser.direction !=  Vector2.ZERO:
+#		laser.direction = direction
+#	if laser.direction == Vector2.ZERO:
+#		laser.set_lazer_direction(knownDirection)
 	$Projectiles.add_child(laser)
 
 func create_laser(pos, direction):
@@ -49,7 +56,7 @@ func _on_main_character_throw_grendade(pos, direction, knownDirection):
 	# godot does not now grenade is a rigid body,
 	# give it the type as to get access to linear velocity
 	var grenade = grenade_scene.instantiate() as RigidBody2D
-	print('GRENADE INSTANTIATED')
+
 	grenade.position = pos
 	grenade.linear_velocity =direction * grenade.speed
 	grenade.set_grenade_direction(knownDirection)
@@ -59,5 +66,15 @@ func _on_scout_laser(pos, direction):
 	create_laser(pos, direction)
 
 func _on_drone_laser(pos, direction):
+#	print('dont pos     ', pos)
+#	print('dont   direction   ', direction)
 	create_laser(pos, direction)
+
+
+
+func _on_ui_cursor_location_ui(_pos, _direction) -> void:
+	pass
+#	cursor_location = pos
+#	cursor_direction = direction
+
 

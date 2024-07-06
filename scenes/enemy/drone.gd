@@ -21,6 +21,7 @@ func _ready():
 
 func _process(delta):
 	var direction: Vector2 = (Globals.player_pos - position).normalized()
+#	print('drone direction : ', direction)
 
 	velocity = direction * speed * speed_multiplier
 	if player_nearby:
@@ -59,7 +60,7 @@ func hit():
 		$DroneImage.material.set_shader_parameter("progress", 1)
 	if health < 1:
 		$Sounds/Explosion.play()
-#		$AnimationPlayer.play("explosion")
+		$AnimationPlayer.play("explosion")
 		explosion_active = true
 
 

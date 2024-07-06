@@ -310,7 +310,7 @@ collision_layer = 2
 collision_mask = 15
 
 [node name="Gate" parent="." index="3" instance=ExtResource("2_3nkjf")]
-position = Vector2(-85, -198)
+position = Vector2(-121, -207)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="5"]
 visible = false
@@ -323,10 +323,10 @@ position = Vector2(1213, 978)
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("22_bw5nd")]
 light_mask = 2
 visibility_layer = 11
-position = Vector2(1867, 2837)
+position = Vector2(-1357, 2453)
 
 [node name="Drone" parent="Enemies" index="1" instance=ExtResource("20_i0ug5")]
-position = Vector2(-1112, 2945)
+position = Vector2(632, 2393)
 collision_mask = 11
 
 [node name="Drone2" parent="Enemies" index="2" instance=ExtResource("20_i0ug5")]
@@ -350,10 +350,10 @@ position = Vector2(2403, -576)
 position = Vector2(-366, 651)
 
 [node name="Hunter" parent="Enemies" index="8" instance=ExtResource("25_lxcc3")]
-position = Vector2(-3428, 128)
+position = Vector2(961, 3621)
 
 [node name="MainCharacter" parent="." index="9"]
-position = Vector2(-2625, 604)
+position = Vector2(-2571, 657)
 
 [node name="CarPath" type="Path2D" parent="." index="12"]
 position = Vector2(40, -142)

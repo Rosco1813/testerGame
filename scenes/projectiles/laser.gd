@@ -32,6 +32,7 @@ func set_lazer_direction(knownDirection):
 		$".".rotation_degrees = -90
 		direction = Vector2.LEFT
 
+
 func _on_body_entered(body):
 	if "hit" in body:
 		body.hit()

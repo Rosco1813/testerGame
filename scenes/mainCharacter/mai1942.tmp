@@ -1709,18 +1709,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(6, 30)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cursor:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(2, 494)]
-}
 
 [sub_resource type="Animation" id="Animation_m8sgm"]
 resource_name = "walk_left"
@@ -1811,18 +1799,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(6, 30)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cursor:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-448, -22)]
 }
 
 [sub_resource type="Animation" id="Animation_kpt3g"]
@@ -1915,18 +1891,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2(6, 30)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cursor:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(470, -34)]
-}
 
 [sub_resource type="Animation" id="Animation_4hbaq"]
 resource_name = "walk_up"
@@ -2017,18 +1981,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(6, 30)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cursor:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(11, -556)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hnsc4"]
@@ -2269,11 +2221,10 @@ polygon = PackedVector2Array(32, 153, 12, 151, -3, 154, -8, 166, -5, 174, 1, 184
 radius = 15.2131
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8xb2"]
-size = Vector2(3986, 2673)
+size = Vector2(5330, 3005)
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Entity"]]
 z_index = 2
-position = Vector2(-12, 8)
 collision_mask = 31
 script = ExtResource("1_a35yv")
 
@@ -2281,13 +2232,15 @@ script = ExtResource("1_a35yv")
 z_index = 1
 
 [node name="RightPosition" type="Marker2D" parent="LaserStartPositions"]
-position = Vector2(6, 0)
+position = Vector2(-472, -226)
 metadata/_edit_lock_ = true
 
 [node name="CharacterImage" type="Sprite2D" parent="."]
+position = Vector2(6, -7)
 texture = ExtResource("1_byd8y")
 hframes = 20
 frame = 5
+metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Sprite2D" parent="CharacterImage"]
 modulate = Color(0.0588235, 0, 0.133333, 0.576471)
@@ -2313,7 +2266,7 @@ parameters/conditions/is_shooting = false
 parameters/conditions/is_walking = false
 parameters/aim/blend_position = Vector2(-0.127188, -0.0186666)
 parameters/idle/blend_position = Vector2(-0.00251049, 1.08057)
-parameters/roll/blend_position = Vector2(0.0332717, -0.0044843)
+parameters/roll/blend_position = Vector2(-0.00350058, 0.978552)
 parameters/shoot/blend_position = Vector2(0.00256634, -0.00759494)
 parameters/walk/blend_position = Vector2(-0.0021978, -0.895307)
 
@@ -2335,7 +2288,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="gunPartilcesRight" type="GPUParticles2D" parent="."]
-position = Vector2(3, -61)
+position = Vector2(-390, -214)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_hhn5q")
 texture = ExtResource("7_341th")
@@ -2359,18 +2312,17 @@ occluder = SubResource("OccluderPolygon2D_mfygg")
 metadata/_edit_lock_ = true
 
 [node name="Cursor" type="StaticBody2D" parent="."]
-position = Vector2(-448, -22)
 collision_layer = 32
 collision_mask = 63
 script = ExtResource("9_3qpny")
 
 [node name="CursorCollion" type="CollisionShape2D" parent="Cursor"]
-position = Vector2(-2, 2)
+position = Vector2(-5.99994, -643)
 scale = Vector2(1.90625, 1.9375)
 shape = SubResource("CircleShape2D_twebh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cursor"]
-position = Vector2(-14, -4)
+position = Vector2(-7, -642)
 texture = ExtResource("9_h4rvc")
 
 [node name="CursorAreaRight" type="Area2D" parent="."]
@@ -2379,15 +2331,15 @@ collision_mask = 35
 [node name="CursorAreaRightColision" type="CollisionPolygon2D" parent="CursorAreaRight"]
 position = Vector2(491, 22)
 scale = Vector2(1.0494, 1)
-polygon = PackedVector2Array(-298.266, -30, 2088.8, -1699, 2099.29, 587)
+polygon = PackedVector2Array(-273.488, -16, 1178.76, -1305, 1267.39, 1061)
 
 [node name="CursorAreaLeft" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 32
 
 [node name="CursorAreaLeftColision" type="CollisionPolygon2D" parent="CursorAreaLeft"]
-position = Vector2(-432, 30)
-polygon = PackedVector2Array(-2169, -1639, -2163, 743, 351, -41)
+position = Vector2(-372, 36)
+polygon = PackedVector2Array(-1350, -1348, -1399, 1032, 351, -41)
 
 [node name="CursoAreaUp" type="Area2D" parent="."]
 collision_layer = 32
@@ -2395,7 +2347,7 @@ collision_mask = 32
 
 [node name="CursorAreaUpColision" type="CollisionPolygon2D" parent="CursoAreaUp"]
 position = Vector2(134, -659)
-polygon = PackedVector2Array(-2701, -961, 2538, -1029, -161, 651)
+polygon = PackedVector2Array(-1853, -661, 1587, -681, -161, 651)
 
 [node name="CursorAreaDown" type="Area2D" parent="."]
 collision_layer = 32
@@ -2404,14 +2356,12 @@ collision_mask = 32
 [node name="CursorAreaDownColision" type="CollisionPolygon2D" parent="CursorAreaDown"]
 position = Vector2(253.4, 533)
 scale = Vector2(0.998963, 1)
-polygon = PackedVector2Array(-2846.35, 775, 2466.16, 741, 2460.15, 116, -279.69, -534, -2846.35, 270)
+polygon = PackedVector2Array(-2028.5, 541, 1561.22, 575, -279.69, -534)
 
 [node name="CursorBoundary" type="Area2D" parent="."]
-visible = false
-collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorBoundary"]
-position = Vector2(3, 1)
+position = Vector2(88, -160.5)
 shape = SubResource("RectangleShape2D_b8xb2")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

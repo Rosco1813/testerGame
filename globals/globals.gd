@@ -48,6 +48,10 @@ var health = 60:
 		stat_change.emit()
 
 var player_pos: Vector2
+var cursor_pos:Vector2
+var cursor_direction:Vector2
+var player_walking:bool
+var player_idle: bool
 
 func player_i_frames_timer():
 	await get_tree().create_timer(0.5).timeout

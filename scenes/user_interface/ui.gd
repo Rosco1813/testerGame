@@ -6,6 +6,7 @@ var red: Color = Color(0.9,0,0,1)
 var oragnge: Color = Color("f8b64f")
 var violet: Color = Color("4565be")
 
+#signal cursor_location_ui(pos, direction)
 
 @onready var laser_label: Label = $LaserCounter/VBoxContainer/Label
 @onready var grenade_label: Label = $GrenadeCounter/VBoxContainer/Label
@@ -59,3 +60,9 @@ func update_stat_text():
 #func update_shotgun_text():
 #	update_color(3, Globals.grenade_amount, shotgun_label, shotgun_icon)
 #
+
+
+func _on_cursor_cursor_location(_pos, _direction) -> void:
+	pass
+#	Globals.cursor_pos = pos
+#	cursor_location_ui.emit(pos, direction)

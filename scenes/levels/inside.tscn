@@ -43,7 +43,7 @@ radius = 422.295
 [node name="inside" instance=ExtResource("1_40uks")]
 script = ExtResource("2_oammj")
 
-[node name="Decals" parent="." index="1"]
+[node name="Decals" parent="." index="0"]
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Decals" index="0"]
@@ -78,7 +78,7 @@ rotation = 1.69297
 skew = 0.00698132
 texture = ExtResource("6_fbsdj")
 
-[node name="Ground" parent="." index="2"]
+[node name="Ground" parent="." index="1"]
 light_mask = 1
 visibility_layer = 1
 metadata/_edit_group_ = true
@@ -165,7 +165,7 @@ position = Vector2(-701, -708)
 [node name="SteamVent3" parent="Ground" index="18" instance=ExtResource("11_3ifeb")]
 position = Vector2(-2014, -1278)
 
-[node name="Infestation" parent="." index="3"]
+[node name="Infestation" parent="." index="2"]
 position = Vector2(-1898, 1493)
 
 [node name="Large" type="Sprite2D" parent="Infestation" index="0"]
@@ -329,6 +329,21 @@ polygon = PackedVector2Array(-695, 381, -641, 373, -635, 523, -642, 718, -693, 7
 position = Vector2(2296, -806)
 polygon = PackedVector2Array(-943, 408, -898, 393, -881, 469, -871, 519, -845, 568, -802, 512, -731, 486, -634, 482, -634, 601, -658, 618, -699, 630, -751, 620, -796, 589, -812, 631, -740, 680, -686, 693, -608, 777, -615, 897, -622, 1109, -658, 1114, -662, 806, -700, 833, -721, 812, -715, 769, -727, 739, -772, 768, -806, 740, -796, 696, -833, 672, -888, 605, -940, 496)
 
+[node name="Items" parent="." index="3"]
+position = Vector2(-43, 15)
+
+[node name="Item" parent="Items" index="0" instance=ExtResource("12_nupnt")]
+position = Vector2(6107, 252)
+
+[node name="Item2" parent="Items" index="1" instance=ExtResource("12_nupnt")]
+position = Vector2(4942, -642)
+
+[node name="Item4" parent="Items" index="2" instance=ExtResource("12_nupnt")]
+position = Vector2(2521, 1191)
+
+[node name="Item3" parent="Items" index="3" instance=ExtResource("12_nupnt")]
+position = Vector2(-1688, -1355)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="4"]
 energy = 0.5
 blend_mode = 1
@@ -343,21 +358,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(7281.75, 781)
 shape = SubResource("RectangleShape2D_5gtga")
-
-[node name="Items" parent="." index="6"]
-position = Vector2(-43, 15)
-
-[node name="Item" parent="Items" index="0" instance=ExtResource("12_nupnt")]
-position = Vector2(6107, 252)
-
-[node name="Item2" parent="Items" index="1" instance=ExtResource("12_nupnt")]
-position = Vector2(4942, -642)
-
-[node name="Item4" parent="Items" index="2" instance=ExtResource("12_nupnt")]
-position = Vector2(2521, 1191)
-
-[node name="Item3" parent="Items" index="3" instance=ExtResource("12_nupnt")]
-position = Vector2(-1688, -1355)
 
 [node name="enterArea" type="Area2D" parent="." index="7"]
 position = Vector2(5705, 665)
@@ -406,7 +406,7 @@ position = Vector2(-5725, -1953)
 [node name="Drone" parent="Enemies" index="11" instance=ExtResource("26_ofojr")]
 position = Vector2(4871, -297)
 
-[node name="MainCharacter" parent="." index="10"]
+[node name="MainCharacter" parent="." index="9"]
 position = Vector2(6661, 616)
 metadata/_edit_group_ = true
 
@@ -416,7 +416,7 @@ scale = Vector2(0.740625, 0.65625)
 texture = ExtResource("6_up1ox")
 metadata/_edit_lock_ = true
 
-[node name="Lights" parent="." index="11"]
+[node name="Lights" parent="." index="10"]
 metadata/_edit_group_ = true
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("6_wq3me")]
